@@ -16,6 +16,7 @@ function img_resize() {
     $("#guest").css("top",""+wid/11+"px");////
     $("#guest").css("left",""+wid/6+"px");
 
+    $("#special").css("left",""+wid/6+"px");
     $(".box").css("width",""+wid/6+"px");
     $(".sp").css("width",""+wid/12+"px");
     $(".sp").css("margin-right","-"+wid/26+"px");
