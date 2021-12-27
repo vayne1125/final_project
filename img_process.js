@@ -14,6 +14,7 @@ function img_resize() {
      $(".g").on("dragover",function(event){ event.preventDefault();}); //
      $(".head_img").css("width",""+wid/7+"px");
     $("#guest").css("top",""+wid/11+"px");////
+       $("#special").css("top",""+wid/3+"px");
 
     $("#special").css("left",""+wid/6+"px");
     $(".box").css("width",""+wid/6+"px");
