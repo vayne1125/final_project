@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="https://vayne1125.github.io/final_project/CSS.css">
     <title>Document</title>
     <style>
         
@@ -10,6 +9,14 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
     </script>
     <script>
+        $(function () {
+            var _link = $('<link rel="stylesheet" type="text/css" href="https://vayne1125.github.io/final_project/CSS.css">');
+            
+            // 提前修改link屬性
+            _link.attr("title", "global");
+            
+            _link.appendTo("head");
+        });
         $(document).ready(function(){
             $("#door_out").hide();
             $("#cloud").hide();
