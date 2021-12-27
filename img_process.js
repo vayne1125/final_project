@@ -55,6 +55,7 @@ function img_resize() {
                     );
                 }
                 else{
+                    console.log(tar.src);
                 let d=tar.src.split('_');
                 tar.src="img_source_food_wasted_"+d[d.length-1];tar.className="wasted";tar.draggable=false;
                 $(document).ready(function(){
