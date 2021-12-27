@@ -41,6 +41,7 @@ body{
 #wood{
     bottom: 0;
     z-index: 50;
+    right:0;
 }
 #wall{
     right: 0;
