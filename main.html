@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>laaaaa</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style >
+            @import "main.css";
+            div{
+                width: 100%;
+            }
+            div div{
+                text-align: center;
+            }
+            div div div{
+                display:inline;
+            }
+            div div div div{
+                width: unset;
+                display: inline;
+                position: absolute;
+                z-index: 60;
+            }
+        </style>
+        <script src="img_process.js"></script>
+</head>
+<body>
+<div >
+    
+    <img  id="wood" class="bg" src="img_source\bg\wood.png" >
+    <img  id="wall" class="bg" src="img_source\bg\wall.png" >  
+    <img  id="l_wall" class="bg" src="img_source\bg\l_wall.png" > 
+    <img  id="m_wall" class="bg" src="img_source\bg\m_wall.png" > 
+
+    <div id="special">
+        <div>   
+            
+            <div id="sp_0">
+                <img class="sp" id="sp0" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp1" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp2" src="img_source\food\special\wd_fish.png">
+            </div>
+            <img    class="box" src="img_source\bg\box.png">
+        </div>
+        <div>    
+            
+            <div id="sp_1">
+                <img class="sp" id="sp3" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp4" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp5" src="img_source\food\special\wd_fish.png">
+            </div>
+            <img    class="box" src="img_source\bg\box.png">
+        </div>
+    </div>
+
+    <div id="guest" class="bg">
+        <div id="g_0" class="g">
+            <img  class="head_img"  src="uuu.png">
+            <img  class="guest"  src="img_source\guest.png">
+        </div>
+        <img  class="blank"  src="img_source\blank.png">
+        <div id="g_1" class="g">
+            <img  class="head_img"  src="uuu.png">
+            <img  class="guest"  src="img_source\guest.png">
+        </div>
+        <img  class="blank"  src="img_source\blank.png">
+        <div id="g_2" class="g">
+            <img  class="head_img"  src="uuu.png">
+            <img  class="guest"  src="img_source\guest.png"> 
+        </div>
+        <img  class="blank"  src="img_source\blank.png">
+        <div id="g_3" class="g">
+            <img  class="head_img"  src="uuu.png">
+            <img class="wasted" src="img_source\food\wasted\egg.png">
+            <img  class="guest"  src="img_source\guest.png">
+        </div>
+        <img  class="blank"  src="img_source\blank.png">
+    </div>
+    <img  id="sky" class="bg" src="img_source\sky.jpg" >
+
+</div>
+<script >
+    
+    img_resize();
+    $(document).ready(function(){
+        $(function () {
+            var _link = $('<link rel="stylesheet" type="text/css" href="https://vayne1125.github.io/final_project/CSS.css">');
+            
+            // 提前修改link屬性
+            _link.attr("title", "global");
+            
+            _link.appendTo("head");
+        });
+    });
+
+</script>
+</body>
+
+</html>

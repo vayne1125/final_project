@@ -1,0 +1,66 @@
+body{
+    background-color: lightblue;
+}
+
+
+.bg{
+    position: fixed;
+}
+
+.wasted{
+    position: absolute;
+    z-index: 20;
+}
+.head_img{
+    position: absolute;
+    z-index: 10;
+
+}
+.sp{
+    position: relative;
+    z-index: 55;
+}
+
+.box{
+    position: relative;
+    z-index: 70;
+}
+
+.guest{
+    position: absolute;
+}
+
+
+
+
+#sky{
+    z-index: -1;
+    top: 0;
+    right: 0;
+}
+#wood{
+    bottom: 0;
+    z-index: 50;
+}
+#wall{
+    right: 0;
+    top: 0;
+    z-index: 30;
+}
+#l_wall{
+    left: 0;
+    top: 0;
+    z-index: 30;
+}
+#m_wall{
+    bottom: 0;
+    z-index: 35;
+}
+
+
+
+#special{
+    position: fixed;
+    bottom: 0;
+    z-index: 55;
+}
