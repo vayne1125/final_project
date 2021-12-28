@@ -1,5 +1,5 @@
 function img_resize() {   
-    let wid=window.innerWidth;  hei=window.outerHeight;
+    let wid=window.outerWidth;  hei=window.outerHeight;
    let sky= document.getElementById("sky");           
    let wood= document.getElementById("wood");
 
