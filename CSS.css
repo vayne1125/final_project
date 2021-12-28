@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
 .roof_{
     animation: roof_ani 3s;
-    position:absolute;
+    position:relative;
     animation-fill-mode: forwards;
     border-style: solid;
     z-index: 3;
@@ -99,7 +99,7 @@ input{
 @keyframes roof_ani{
     0%{
         top:100px;
-        right:600px;
+        margin-left: 420px;
         width: 0px;
         height: 0px;
         border-width: 100px 100px 100px 100px;
@@ -107,7 +107,7 @@ input{
     }
     30%{
         top:175px;
-        right:600px;
+        margin-left: 420px;
         width: 0px;
         height: 0px;
         border-width: 70px 70px 70px 70px;
@@ -115,7 +115,7 @@ input{
     }
     50%{
         top:175px;
-        right:600px;
+        margin-left: 420px;
         width: 0px;
         height: 0px;
         border-width: 80px 80px 80px 80px;
@@ -123,7 +123,7 @@ input{
     }
     100%{
         top:175px;
-        right:450px;
+        margin-left: 420px;
         width: 0px;
         height: 0px;
         border-width: 0px 200px 100px 200px;
