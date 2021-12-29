@@ -49,6 +49,7 @@ function img_resize() {
                 }
                 else{
                 let d=tar.src.split('_');
+                    console.log(d);
                 tar.src="img_source_food_wasted_"+d[d.length-1];tar.className="wasted";tar.draggable=false;
                 $(document).ready(function(){
                     $(event.target.parentNode).prepend(tar);
