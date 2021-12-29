@@ -3,9 +3,6 @@ body{
 }
 
 
-.bg{
-    position: fixed;
-}
 
 .wasted{
     position: absolute;
@@ -32,36 +29,28 @@ body{
 
 
 
+#guest{
+    position: absolute;
 
+}
 #sky{
+    position: absolute;
     z-index: -1;
     top: 0;
     right: 0;
 }
 #wood{
-    bottom: 0;
+    position: absolute;
+    right: 0px;
     z-index: 50;
-    right:0;
 }
-#wall{
-    right: 0;
-    top: 0;
-    z-index: 30;
+#xp{
+    position: absolute;
+    right: 0px;
+    z-index: 99;
 }
-#l_wall{
-    left:0;
-    top: 0;
-    z-index: 30;
-}
-#m_wall{
-    bottom: 0;
-    z-index: 35;
-}
-
-
 
 #special{
-    position: fixed;
-    bottom: 0;
+    position: absolute;
     z-index: 55;
 }
