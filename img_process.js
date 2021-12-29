@@ -1,12 +1,12 @@
 function img_resize() {   
-    let wid=window.innerWidth;  hei=window.outerHeight;
+    let wid=window.innerWidth; ;
    let sky= document.getElementById("sky");           
    let wood= document.getElementById("wood");
 
 
    $(document).ready(function(){
      $("*").attr("draggable",false);
-     $("#xp").css("width",""+wid+"px").css("top",""+wid/2.19+"px").css("height",""+hei/20+"px");
+     $("#xp").css("width",""+wid+"px").css("top",""+wid/2.19+"px").css("height",""+window.outerHeight/20+"px");
      $(".guest").css("width",""+wid/6+"px");        //訪客
      $(".blank").css("width",""+wid/6+"px");
      $(".g").on("dragover",function(event){ event.preventDefault();}); //
