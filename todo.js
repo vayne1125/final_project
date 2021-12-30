@@ -9,8 +9,8 @@ function image_repos(){
             "top"  : ""+hei/3+"px",
         });
         $("#house").css({
-            "left" : ""+wid/2.67+"px",
-            "top"  : ""+hei/2.1+"px",
+            "left" : ""+(wid/3+50)+"px",
+            "top"  : ""+(hei/3+100)+"px",
         })
         console.log($("#roof").attr("style"));
         console.log($("#house").attr("style"));
