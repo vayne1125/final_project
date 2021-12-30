@@ -1,25 +1,31 @@
+let hei = window.innerHeight;
+let wid = window.innerWidth;
 function image_repos(){
-    let hei = window.innerHeight;
-    let wid = window.innerWidth;
     console.log(hei);
     console.log(wid);
     $(document).ready(function(){
-        $(".roof_").css({
-            "left" : wid/3+"px",
-            "top"  : hei/3+"px",
+        $("#roof").css({
+            "left" : ""+wid/3+"px",
+            "top"  : ""+hei/3+"px",
         });
-        doani();
+        $("#house").css({
+            "left" : ""+wid/2.67+"px",
+            "top"  : ""+hei/2.1+"px",
+        })
+        console.log($("#roof").attr("style"));
+        console.log($("#house").attr("style"));
     });
+    doani();
 }
 function doani(){
     $("#door_out").hide();
     $("#cloud").hide();
     $("#apple_with_board").hide();
     $("#roof").addClass("roof_")
-   /* setTimeout(function(){
+    setTimeout(function(){
         $("#house").addClass("house_")
     },3000)
-    
+    /*
     setTimeout(function(){
         $("#apple_with_board").fadeTo(2500,1);
         $("#restaurant").fadeTo(3000,1);
