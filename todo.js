@@ -56,11 +56,11 @@ function doani(){
     $("#roof").addClass("roof_")
     setTimeout(function(){
         $("#house").addClass("house_")
-    },1000)
+    },3000)
     setTimeout(function(){
         $("#apple_with_board").fadeTo(2500,1);
         $("#restaurant").fadeTo(3000,1);
-    },3000)
+    },4500)
     setTimeout(function(){
         $("#door_out").fadeIn();
         $("#door_in").fadeIn();
