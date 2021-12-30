@@ -29,8 +29,6 @@
 }
 .apple_with_board_{
     position : absolute;
-    top:250px;
-    right: 700px;
     width: 300px;
     height: 300px;
     z-index: 10;
@@ -39,8 +37,6 @@
 .restaurant_{
     color: white;
     position : absolute;
-    top:230px;
-    right: 400px;
     font-size: 125px;
     z-index: 11;
     display: none;
@@ -49,16 +45,15 @@
     border: solid;
     border-color:navajowhite;
     position : absolute;
-    top:50%;
-    left:500px;
     z-index: 100;
     display: none;
 }
 body{
     font-family: 'Vujahday Script', cursive;
     background-color: #272727;
+    color: white;
 }
-div{
+form{
     display: inline-block;
     justify-content: center;
     text-align:center;
@@ -66,12 +61,20 @@ div{
 input{
     outline-style: none ;
     border:0px;
+    background-color: #272727;
     font-family: 'Vujahday Script', cursive;
 }
+.cloud_{
+    position : absolute;
+    width: 70px;
+    height: 50px;
+
+}
+#submit{
+    background-color: rgb(241, 229, 211)
+}
 .chimney_{
-    position : relative;
-    top:160px;
-    right: 550px;
+    position : absolute;
     border-style: solid;
     width: 50px;
     height: 90px;
@@ -81,9 +84,7 @@ input{
     display: none;
 }
 .door_in_{
-    position : relative;
-    top:384px;
-    right: 615px;
+    position : absolute;
     border-style: solid;
     width: 60px;
     height: 90px;
@@ -91,14 +92,6 @@ input{
     display: none;
     z-index: 2;
     background:white;
-}
-.cloud_{
-    display: none;
-    position : relative;
-    top:100px;
-    right: 537px;
-    height: 50px;
-    width: 70px;
 }
 @keyframes roof_ani{
     0%{
