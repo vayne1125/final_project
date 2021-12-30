@@ -65,7 +65,7 @@ function doani(){
         $("#door_out").fadeIn();
         $("#door_in").fadeIn();
         $("#chimney").fadeIn();
-    },1000)
+    },4500)
     $("#door_out").mouseover(function(){
         $("#door_out").css({
             "transform":"skewY(20deg)",
