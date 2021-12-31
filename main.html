@@ -9,15 +9,10 @@
         <style >
             @import "main.css";
 
-            div div{
-                text-align: center;
-            }
-            div div div{
-                display:inline;
-            }
-            div div div div{
-                width: unset;
+             div div{
                 display: inline;
+            }
+             div div div{
                 position: absolute;
                 z-index: 60;
             }
@@ -25,61 +20,80 @@
         <script src="img_process.js"></script>
 </head>
 <body>
-<div >
-    
-    <img  class="blank"  src="img_source_blank.png">
-    <img  id="wood" src="img_source_bg_wood.png" >
+
+    <img  class="blank"  src="img_source\blank.png">
+    <img  id="wood" src="img_source\bg\wood.png" >
     <img id="xp" src="xp.png">
-    <div id="special">
+
+    
+
+    <div class="special" id="spp">
         <div>   
-            
             <div id="sp_0">
-                <img class="sp" id="sp0" src="img_source_food_special_wd-fish.png">
-                <img class="sp" id="sp1" src="img_source_food_special_wd-fish.png">
-                <img class="sp" id="sp2" src="img_source_food_special_wd-fish.png">
+                <img class="sp" id="sp0" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp1" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp2" src="img_source\food\special\wd_fish.png">
             </div>
-            <img    class="box" src="img_source_bg_box.png">
+            <img    class="box" src="img_source\bg\box.png">
         </div>
         <div>    
             
             <div id="sp_1">
-                <img class="sp" id="sp3" src="img_source_food_special_wd-fish.png">
-                <img class="sp" id="sp4" src="img_source_food_special_wd-fish.png">
-                <img class="sp" id="sp5" src="img_source_food_special_wd-fish.png">
+                <img class="sp" id="sp3" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp4" src="img_source\food\special\wd_fish.png">
+                <img class="sp" id="sp5" src="img_source\food\special\wd_fish.png">
             </div>
-            <img    class="box" src="img_source_bg_box.png">
+            <img    class="box" src="img_source\bg\box.png">
         </div>
     </div>
+
+    <div  class="special" id="egg_box">
+    <div>
+            <div class="food" id="egg_0">
+                <img class="sp" id="egg0" src="img_source\food\fresh\3egg.png">
+                <img class="sp" id="egg1" src="img_source\food\fresh\3egg.png">
+                <img class="sp" id="egg2" src="img_source\food\fresh\3egg.png">
+                <img class="sp" id="egg3" src="img_source\food\fresh\3egg.png">
+                <img class="sp" id="egg4" src="img_source\food\fresh\3egg.png">
+
+            </div>
+            <img  class="blank"  src="img_source\blank.png">
+    </div>   
+</div>
+    <div  class="special" id="tomato_box">
+        <div>
+            <img src="img_source\bg\blanket_o.png" class="tom_blanket"id="tom_blanket">
+                <div class="food" id="tom_0">
+                    <img class="sp" id="tom0" src="img_source\food\fresh\4tomato.png">
+                    <img class="sp" id="tom1" src="img_source\food\fresh\4tomato.png">
+                    <img class="sp" id="tom2" src="img_source\food\fresh\4tomato.png">
+                    <img class="sp" id="tom3" src="img_source\food\fresh\4tomato.png">
+                    <img class="sp" id="tom4" src="img_source\food\fresh\4tomato.png">
+    
+                </div>
+                <img src="img_source\bg\blanket.png" class="tom_blanket" >
+                <img  class="blank" id="tomb" src="img_source\blank.png">
+                
+        </div>
+    </div>   
+    
+
 
     <div id="guest" class="bg">
-        
+        <img  class="blank" id="blank0" src="img_source\blank.png">
+        <img  class="blank" id="blank1" src="img_source\blank.png">
+        <img  class="blank" id="blank2" src="img_source\blank.png">
         <div id="g_0" class="g">
             <img  class="head_img"  src="uuu.png">
-            <img  class="guest"  src="img_source_guest.png">
+            <img  class="guest"  src="img_source\guest.png">
         </div>
-        <img  class="blank"  src="img_source_blank.png">
-        <div id="g_1" class="g">
-            <img  class="head_img"  src="uuu.png">
-            <img  class="guest"  src="img_source_guest.png">
-        </div>
-        <img  class="blank"  src="img_source_blank.png">
-        <div id="g_2" class="g">
-            <img  class="head_img"  src="uuu.png">
-            <img  class="guest"  src="img_source_guest.png"> 
-        </div>
-        <img  class="blank"  src="img_source_blank.png">
-        <div id="g_3" class="g">
-            <img  class="head_img"  src="uuu.png">
-            <img class="wasted" src="img_source_food_wasted_egg.png">
-            <img  class="guest"  src="img_source_guest.png">
-        </div>
-        <img  class="blank"  src="img_source_blank.png">
+        
     </div>
-    <img  id="sky" class="bg" src="img_source_sky.jpg" >
+    <img  id="sky" class="bg" src="img_source\sky.jpg" >
 
-</div>
+
 <script >
-    
+    let wid=window.outerWidth;
     img_resize();
     $(document).ready(function(){
         $(function () {
@@ -90,6 +104,47 @@
             
             _link.appendTo("head");
         });
+
+
+
+
+
+
+        let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
+    [].forEach.call(ds,function(ds){
+        ds.ondragstart=function(event){
+            event.dataTransfer.setData("text", event.target.id);
+        };
+        
+    });
+    [].forEach.call(dr,function(drr){
+        drr.ondrop=function(event){
+            let n=Math.floor(Math.random()*4);
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            let tar=document.querySelector('#'+data);
+                if(!n){                 //guest閃躲
+                    $(document).ready(
+                        function(){
+                            $(event.target.parentNode.childNodes).animate({top:"+=500px"},"slow");
+                            $(event.target.parentNode.childNodes).animate({top:"-=500px"},"slow");
+                            $(tar).remove();
+                        }
+                    );
+                }
+                else{
+                let d=tar.src.split('/');
+                tar.src="img_source\\food\\wasted\\"+d[d.length-1];tar.className="wasted";tar.draggable=false;
+                tar.style.width=""+wid/6+"px";
+                $(tar).mouseover(function(){$(this).css("width",""+wid/5.5+"px");});   //
+                $(tar).mouseout(function(){$(this).css("width",""+wid/6+"px");});
+                $(document).ready(function(){
+                    $(event.target.parentNode).prepend(tar);
+                });}
+        
+    }});
+    
+
     });
 
 </script>
