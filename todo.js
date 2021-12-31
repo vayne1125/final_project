@@ -1,8 +1,6 @@
 let hei = window.innerHeight;
 let wid = window.innerWidth;
 function image_repos(){
-    console.log(hei);
-    console.log(wid);
     $(document).ready(function(){
         $("#roof").css({
             "left" : ""+wid/3+"px",
@@ -38,11 +36,11 @@ function image_repos(){
             "top"  : ""+(hei/4)+"px",
         })
         
-        $("checkin").css({
+        $("start").css({
             "left" : ""+(wid/3+270)+"px",
             "top"  : ""+(hei/4)+"px",
         })
-        $("form").css({
+        $("#start").css({
             "left" : ""+(wid/3+60)+"px",
             "top"  : ""+(hei/4+130)+"px",
         })
@@ -50,6 +48,7 @@ function image_repos(){
     doani();
 }
 function doani(){
+    $("#start").hide();
     $("#door_out").hide();
     $("#cloud").hide();
     $("#apple_with_board").hide();
@@ -79,24 +78,10 @@ function doani(){
             "top"  : ""+(hei/4+210)+"px",
         });
     })
-    /*
-    $("#chimney").mouseover(function(){
-        $("#cloud").animate({
-            top:"-=150px",
-        },1000)
-       
-    });
-    $("#chimney").mouseout(function(){
-        $("#cloud").animate({
-            top:"+=150px",
-        },1000) 
-      
-    });
-    */
     $("#door_out").click(function(){
         $("div div").fadeTo(100,0);
         $("div div").hide();
-        $("#checkin").show();
+        $("#start").show();
         $("#restaurant").css({
             "top":"-=52px",
         })
