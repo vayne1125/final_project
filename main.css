@@ -2,7 +2,16 @@ body{
     background-color: lightblue;
 }
 
+.tom_blanket{
+    position: absolute;
+}
+    #tom_blanket{
+        z-index: 99;
+    }
 
+.blank{
+    z-index: -1;
+}
 
 .wasted{
     position: absolute;
@@ -17,6 +26,11 @@ body{
     position: relative;
     z-index: 55;
 }
+
+.food{
+    position: absolute;
+}
+
 
 .box{
     position: relative;
@@ -50,7 +64,11 @@ body{
     z-index: 99;
 }
 
-#special{
+.special{
     position: absolute;
     z-index: 55;
+}
+
+#spp{
+    z-index: 88;
 }
