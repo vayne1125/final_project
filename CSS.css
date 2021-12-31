@@ -41,7 +41,7 @@
     z-index: 11;
     display: none;
 }
-.checkin_{
+.start_{
     border: solid;
     border-color:navajowhite;
     position : absolute;
@@ -53,10 +53,13 @@ body{
     background-color: #272727;
     color: white;
 }
-form{
+.start_{
     display: inline-block;
     justify-content: center;
     text-align:center;
+}
+#button{
+    background-color: rgb(241, 229, 211)
 }
 input{
     outline-style: none ;
@@ -69,9 +72,6 @@ input{
     width: 70px;
     height: 50px;
 
-}
-#submit{
-    background-color: rgb(241, 229, 211)
 }
 .chimney_{
     position : absolute;
