@@ -43,7 +43,7 @@ body{
 
 
 
-#guest{
+.guest_0{
     position: absolute;
 
 }
@@ -72,3 +72,5 @@ body{
 #spp{
     z-index: 88;
 }
+
+
