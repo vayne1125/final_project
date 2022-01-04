@@ -130,7 +130,7 @@
             
             _link.appendTo("head");
         });
-
+            for(let i=0;i<3;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
         ds.ondragstart=function(event){
