@@ -7,12 +7,12 @@ function img_resize() {
    $(document).ready(function(){
      $("*").attr("draggable",false);
          $(".sp").attr("draggable",true);
-
+    for(let i=0;i<3;i++)$("#guest"+i).animate({top:"+=600px"},10);
      $("#xp").css("width",""+wid+"px").css("top",""+wid/2.19+"px").css("height",""+wid+"px");
      $(".guest").css("width",""+wid/6+"px");        //訪客
      $(".blank").css("width",""+wid/6+"px").css("height","1px");
      $(".g").on("dragover",function(event){ event.preventDefault();});
-     $("#sky").on("dragover",function(event){ event.preventDefault();}); ///
+     $(".sky").on("dragover",function(event){ event.preventDefault();}); ///
      $(".head_img").css("width",""+wid/7+"px");
     $(".guest_0").css("top",""+wid/11+"px").css("left",""+wid/6+"px");
 
