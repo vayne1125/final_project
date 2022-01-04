@@ -130,7 +130,7 @@
             
             _link.appendTo("head");
         });
-            for(let i=0;i<3;i++)$("#guest"+i).animate({top:"+=600px"},10);
+        for(let i=0;i<3;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
         ds.ondragstart=function(event){
@@ -154,11 +154,12 @@
                 });
         
     }});
-            for(let i=0,pos;i<100;i++){                     //guest移動
+            for(let i=0,pos,speed;i<1000;i++){                     //guest移動
                 pos=Math.floor(Math.random()*(wid/6*3))+wid/6;
+                speed=((Math.floor(Math.random()*3))+3)*100;
                 $("#guest0").animate({left:""+pos+"px"},"fast");
-                $("#guest0").animate({top:"-=600px"},"slow");
-                $("#guest0").animate({top:"+=600px"},"slow");
+                $("#guest0").animate({top:"-=600px"},speed);
+                $("#guest0").animate({top:"+=600px"},speed);
         
         }
         $(".sky").on("drop",function(e){     //miss!!!
