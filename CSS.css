@@ -50,7 +50,6 @@
 }
 body{
     font-family: 'Vujahday Script', cursive;
-    background-color: #272727;
     color: white;
 }
 .start_{
@@ -123,3 +122,4 @@ input{
         background:yellow;
     }
 }
+
