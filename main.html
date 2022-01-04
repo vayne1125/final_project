@@ -93,9 +93,7 @@
 
 
     <div id="guest0" class="guest_0">
-        <img  class="blank" id="blank00" src="img_source\blank.png">
-        <img  class="blank" id="blank01" src="img_source\blank.png">
-        <img  class="blank" id="blank02" src="img_source\blank.png">
+        
         <div id="g_0" class="g">
             <img  class="head_img"  src="uuu.png">
             <img  class="guest"  src="img_source\guest.png">
@@ -103,26 +101,21 @@
         
     </div>
     <div id="guest1" class="guest_0">
-        <img  class="blank" id="blank10" src="img_source\blank.png">
-        <img  class="blank" id="blank11" src="img_source\blank.png">
-        <img  class="blank" id="blank12" src="img_source\blank.png">
         <div id="g_1" class="g">
-            <img  class="head_img"  src="uuu.png">
+            
             <img  class="guest"  src="img_source\guest.png">
         </div>
         
     </div>
     <div id="guest2" class="guest_0">
-        <img  class="blank" id="blank20" src="img_source\blank.png">
-        <img  class="blank" id="blank21" src="img_source\blank.png">
-        <img  class="blank" id="blank22" src="img_source\blank.png">
+
         <div id="g_2" class="g">
-            <img  class="head_img"  src="uuu.png">
+            
             <img  class="guest"  src="img_source\guest.png">
         </div>
         
     </div>
-    <img  id="sky" class="bg" src="img_source\sky.jpg" >
+    <img  id="sky" class="sky" src="img_source\sky.jpg" >
 
 
 <script >
@@ -138,11 +131,6 @@
             _link.appendTo("head");
         });
 
-
-
-
-
-
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
         ds.ondragstart=function(event){
@@ -152,31 +140,34 @@
     });
     [].forEach.call(dr,function(drr){
         drr.ondrop=function(event){
-            let n=Math.floor(Math.random()*4);
             event.preventDefault();
             let data = event.dataTransfer.getData("text");
             let tar=document.querySelector('#'+data);
-                if(!n){                 //guest閃躲
-                    $(document).ready(
-                        function(){
-                            $(event.target.parentNode.childNodes).animate({top:"+=500px"},"slow");
-                            $(event.target.parentNode.childNodes).animate({top:"-=500px"},"slow");
-                            $(tar).remove();
-                        }
-                    );
-                }
-                else{
+
                 let d=tar.src.split('/');
                 tar.src="img_source\\food\\wasted\\"+d[d.length-1];tar.className="wasted";tar.draggable=false;
                 tar.style.width=""+wid/6+"px";
-                $(tar).mouseover(function(){$(this).css("width",""+wid/5.5+"px");});   //
-                $(tar).mouseout(function(){$(this).css("width",""+wid/6+"px");});
+                $(tar).unbind("mouseover");   //
+                $(tar).unbind("mouseout");
                 $(document).ready(function(){
                     $(event.target.parentNode).prepend(tar);
-                });}
+                });
         
     }});
-    
+            for(let i=0,pos;i<100;i++){                     //guest移動
+                pos=Math.floor(Math.random()*(wid/6*3))+wid/6;
+                $("#guest0").animate({left:""+pos+"px"},"fast");
+                $("#guest0").animate({top:"-=600px"},"slow");
+                $("#guest0").animate({top:"+=600px"},"slow");
+        
+        }
+        $(".sky").on("drop",function(e){     //miss!!!
+            e.preventDefault();
+            let ev=e.dataTransfer.getData("text");
+            let t=document.querySelector('#'+ev);
+            console.log(ev);
+        });
+
 
     });
 
