@@ -156,7 +156,7 @@
     }});
             for(let i=0,pos,speed;i<1000;i++){                     //guest移動
                 pos=Math.floor(Math.random()*(wid/6*3))+wid/6;
-                speed=((Math.floor(Math.random()*3))+3)*100;
+                speed=((Math.floor(Math.random()*4))+3)*100;
                 $("#guest0").animate({left:""+pos+"px"},"fast");
                 $("#guest0").animate({top:"-=600px"},speed);
                 $("#guest0").animate({top:"+=600px"},speed);
