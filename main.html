@@ -94,14 +94,14 @@
 
     <div id="guest0" class="guest_0">
         
-        <div id="g_0" class="g">
+        <div id="0" class="g">
             <img  class="head_img"  src="uuu.png">
             <img  class="guest"  src="img_source\guest.png">
         </div>
         
     </div>
     <div id="guest1" class="guest_0">
-        <div id="g_1" class="g">
+        <div id="1" class="g">
             
             <img  class="guest"  src="img_source\guest.png">
         </div>
@@ -109,7 +109,7 @@
     </div>
     <div id="guest2" class="guest_0">
 
-        <div id="g_2" class="g">
+        <div id="2" class="g">
             
             <img  class="guest"  src="img_source\guest.png">
         </div>
@@ -119,9 +119,10 @@
 
 
 <script >
-    let wid=window.outerWidth;
+    let wid=window.innerWidth;
     img_resize();
     $(document).ready(function(){
+
         $(function () {
             var _link = $('<link rel="stylesheet" type="text/css" href="https://vayne1125.github.io/final_project/CSS.css">');
             
@@ -130,7 +131,7 @@
             
             _link.appendTo("head");
         });
-        for(let i=0;i<3;i++)$("#guest"+i).animate({top:"+=600px"},10);
+        for(let i=0;i<2;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
         ds.ondragstart=function(event){
@@ -143,32 +144,34 @@
             event.preventDefault();
             let data = event.dataTransfer.getData("text");
             let tar=document.querySelector('#'+data);
-
                 let d=tar.src.split('/');
-                tar.src="img_source\\food\\wasted\\"+d[d.length-1];tar.className="wasted";tar.draggable=false;
-                tar.style.width=""+wid/6+"px";
-                $(tar).unbind("mouseover");   //
-                $(tar).unbind("mouseout");
+                let wast=document.createElement("img");
+                wast.src="img_source\\food\\wasted\\"+d[d.length-1];wast.className="wasted";wast.draggable=false;
+                wast.style.width=""+wid/6+"px";
                 $(document).ready(function(){
-                    $(event.target.parentNode).prepend(tar);
+                    $(event.target.parentNode).prepend(wast);
+                    $(wast).css("top",""+(parseInt($('#guest'+wast.parentNode.id).css("top"))-200)+"px");//待調整
+                    console.log(parseInt($('#guest'+wast.parentNode.id).css("top")));
+                    $(tar).hide();
                 });
         
     }});
             for(let i=0,pos,speed;i<1000;i++){                     //guest移動
                 pos=Math.floor(Math.random()*(wid/6*3))+wid/6;
-                speed=((Math.floor(Math.random()*4))+3)*100;
-                $("#guest0").animate({left:""+pos+"px"},"fast");
+                speed=((Math.floor(Math.random()*7))+3)*100;
+                $("#guest0").animate({left:""+pos+"px"},100);
                 $("#guest0").animate({top:"-=600px"},speed);
                 $("#guest0").animate({top:"+=600px"},speed);
         
         }
-        $(".sky").on("drop",function(e){     //miss!!!
+        
+        $(".sky").bind("drop",function(e){     //miss!!!
             e.preventDefault();
-            let ev=e.dataTransfer.getData("text");
+            let ev=e.originalEvent.dataTransfer.getData("text");
             let t=document.querySelector('#'+ev);
+            $(t).hide();
             console.log(ev);
         });
-
 
     });
 
