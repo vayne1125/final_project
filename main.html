@@ -152,7 +152,7 @@
             _link.attr("title", "global");
             
             _link.appendTo("head");
-               $("#guest0").attr("src",localStorage.getItem("head_img"));    //換頭
+               $(".head_img").attr("src",localStorage.getItem("head_img"));    //換頭
         });
         
         for(let i=0;i<1;i++)$("#guest"+i).animate({top:"+=600px"},10);
