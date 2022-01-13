@@ -79,6 +79,7 @@ body{
     background-color: white ;
     position: absolute;
     left: 10px;
+    top: 10px;
     border: solid 3px #ff7f50;
 }
 #miss{
@@ -88,6 +89,7 @@ body{
 #score{
     position: absolute;
     right: 30px;
+    top: 10px;
     font-size: 50px;
 }
 .left{
