@@ -27,7 +27,7 @@
     <div class="bar" ></div>
     <div class="bar"id="orinbar"></div>
     <img id="xp" src="xp.png">
-    <video src="bgm.mp3" autoplay muted></video>
+    
 
     
 
@@ -38,7 +38,6 @@
                 <img class="sp" id="sp1" src="img_source\food\special\8.png">
                 <img class="sp" id="sp2" src="img_source\food\special\8.png">
             </div>
-            <div class="left"></div>
             <img    class="box" src="img_source\bg\box.png">
         </div>
         <div>    
@@ -48,7 +47,7 @@
                 <img class="sp" id="sp4" src="img_source\food\special\9.png">
                 <img class="sp" id="sp5" src="img_source\food\special\9.png">
             </div>
-            <div class="left"></div>
+
             <img    class="box" src="img_source\bg\box.png">
         </div>
     </div>
@@ -63,7 +62,6 @@
                 <img class="sp" id="egg4" src="img_source\food\fresh\3egg.png">
 
             </div>
-            <div class="left"></div>
             <img  class="blank"  src="img_source\blank.png">
     </div>   
 </div>
@@ -78,7 +76,6 @@
                     <img class="sp" id="tom4" src="img_source\food\fresh\4tomato.png">
     
                 </div>
-                <div class="left"></div>
                 <img src="img_source\bg\blanket.png" class="tom_blanket" >
                 <img  class="blank" id="tomb" src="img_source\blank.png">
                 
@@ -93,7 +90,6 @@
                     <img class="sp" id="noodle3" src="img_source\food\fresh\3noodle.png">
                     <img class="sp" id="noodle4" src="img_source\food\fresh\3noodle.png">
                 </div>
-                <div class="left"></div>
                 <img  class="blank"  src="img_source\blank.png">
                 
         </div>
@@ -107,7 +103,6 @@
                     <img class="sp" id="fri3" src="img_source\food\fresh\5fri.png">
                     <img class="sp" id="fri4" src="img_source\food\fresh\5fri.png">
                 </div>
-                <div class="left"></div>
                 <img  class="blank"  src="img_source\blank.png">
                 
         </div>
@@ -121,7 +116,6 @@
                     <img class="sp" id="chi3" src="img_source\food\fresh\6chi.png">
                     <img class="sp" id="chi4" src="img_source\food\fresh\6chi.png">
                 </div>
-                <div class="left"></div>
                 <img  class="blank"  src="img_source\blank.png">
                 
         </div>
@@ -139,6 +133,7 @@
 
     <img id="miss" src="miss.png">
     <img  id="sky" class="sky" src="img_source\sky.jpg" >
+    <video src="bgm.mp3" autoplay muted  id="bgm"></video>
 
 
 <script >
@@ -202,6 +197,23 @@
         }
         
         $(".sky").bind("drop",function(e){     //miss!!!
+            e.preventDefault();
+            let ev=e.originalEvent.dataTransfer.getData("text");
+            let t=document.querySelector('#'+ev);
+            $(t).hide();
+            $("#miss").show(1).fadeOut(1000);
+            console.log(ev);
+        });
+        
+        $("#bgm").bind("drop",function(e){     //miss!!!
+            e.preventDefault();
+            let ev=e.originalEvent.dataTransfer.getData("text");
+            let t=document.querySelector('#'+ev);
+            $(t).hide();
+            $("#miss").show(1).fadeOut(1000);
+            console.log(ev);
+        });
+        $(".bar").bind("drop",function(e){     //miss!!!
             e.preventDefault();
             let ev=e.originalEvent.dataTransfer.getData("text");
             let t=document.querySelector('#'+ev);
