@@ -22,6 +22,10 @@
             image_repos();
             snow.start();  
             addDarkmodeWidget();  
+            document.body.addEventListener('mousedown', function(){
+                let vdo = $("video")[0]; //jquery
+                vdo.muted = false;
+            }, false); 
         })
     </script>
     <script src="todo.js"></script>
@@ -47,5 +51,6 @@
         <a href="https://forms.gle/XANSR5UrWNC3oUf89" class = "google_link" target="blank_">\\點我匯入圖片//</a><br>
         <a href="#" onClick="delayURL('https://vayne1125.github.io/final_project/main.html',1000)"><input id = "button" type="button" value="Start" style="width: 500px;"></a>
     </div>
+    <video src="starriver.mp3" autoplay muted loop></video>
 </body>
 </html>
