@@ -83,9 +83,12 @@ function doani(){
             "top":"-=52px",
         })
     })
-    $("#door_out").click(function(){
+     $("#button").click(function(){
         do_google();
     })
+}
+function delayURL(url,time){
+    setTimeout("top.location.href = '"  + url   +"'",time);
 }
 
  //Source: https://docs.google.com/spreadsheets/d/1PvLqlRfYuJGGMoCP07LE6gLH27Qsb9iWMCvNzUnycR0/edit?resourcekey#gid=1178473529
