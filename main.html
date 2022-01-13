@@ -27,6 +27,7 @@
     <div class="bar" ></div>
     <div class="bar"id="orinbar"></div>
     <img id="xp" src="xp.png">
+    <video src="bgm.mp3" autoplay muted></video>
 
     
 
@@ -144,7 +145,10 @@
     let wid=window.innerWidth,score=0;
     img_resize();
     $(document).ready(function(){
-
+        document.body.addEventListener('mousedown', function(){
+                let vdo = $("video")[0]; //jquery
+                vdo.muted = false;
+            }, false);
         $(function () {
             var _link = $('<link rel="stylesheet" type="text/css" href="https://vayne1125.github.io/final_project/CSS.css">');
             
@@ -152,8 +156,9 @@
             _link.attr("title", "global");
             
             _link.appendTo("head");
-               $(".head_img").attr("src",localStorage.getItem("head_img"));    //換頭
+           
         });
+        $(".head_img").attr("src","https://drive.google.com/uc?export=view&id=1GTnSGGSgBlGy9UlrOX_k2QvQ0hshfFIZ");    //換頭
         
         for(let i=0;i<1;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
@@ -186,9 +191,10 @@
         alert(score);
         $("#guest0").css("top","1200px").stop();
     },60000);
-            for(let i=0,pos,speed;i<1000;i++){                     //guest移動
+
+        for(let i=0,pos,speed;i<1000;i++){                     //guest移動
                 pos=Math.floor(Math.random()*(wid/6*3))+wid/6;
-                speed=((Math.floor(Math.random()*7))+2)*120;
+                speed=((Math.floor(Math.random()*7))+3)*100;
                 $("#guest0").animate({left:""+pos+"px"},100);
                 $("#guest0").animate({top:"-=600px"},speed);
                 $("#guest0").animate({top:"+=600px"},speed);
