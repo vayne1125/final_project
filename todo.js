@@ -35,15 +35,13 @@ function image_repos(){
             "left" : ""+(wid/3+270)+"px",
             "top"  : ""+(hei/4)+"px",
         })
-        
-        $("start").css({
-            "left" : ""+(wid/3+270)+"px",
-            "top"  : ""+(hei/4)+"px",
-        })
+    
         $("#start").css({
-            "left" : ""+(wid/3+60)+"px",
+            "left" : ""+(wid/3-60)+"px",
             "top"  : ""+(hei/4+130)+"px",
         })
+
+    
     });
     doani();
 }
@@ -86,7 +84,44 @@ function doani(){
             "top":"-=52px",
         })
     })
+    $("#start").click(function(){
+        do_google();
+    })
+    $("tp").click(function(){
+        localStorage.click();
+    })
 }
+
+ //Source: https://docs.google.com/spreadsheets/d/1PvLqlRfYuJGGMoCP07LE6gLH27Qsb9iWMCvNzUnycR0/edit?resourcekey#gid=1178473529
+ //Form: https://forms.gle/XANSR5UrWNC3oUf89
+function do_google(){
+    let sheetID = "1PvLqlRfYuJGGMoCP07LE6gLH27Qsb9iWMCvNzUnycR0"; // 試算表代號
+    let gid = "1178473529"; // 工作表代號
+    let sql = encodeURI("select *"); // SQL 語法，目前是設定所有資訊都顯示
+    let callback = "display"; // 回呼函數名稱
+    let url = "https://spreadsheets.google.com/tq?tqx=responseHandler:" + callback + "&tq=" + sql + "&key=" + sheetID + "&gid=" + gid;
+    //console.log(url);
+    $.getScript(url); //取回Google Spreadsheet API回傳之JS code並執行
+}
+       
+function display(resultJson) {
+
+       // console.log(resultJson); //印出回傳結果，可仔細觀察一下Google試算表回傳之JSON內容
+        let rowArray = resultJson.table.rows;
+        let lastdata = rowArray.length - 1;
+
+        let dataGroup = rowArray[lastdata].c;
+               
+        let imgURL = dataGroup[1].v; //抓圖片網址
+
+        let imgId = imgURL.substring(("https://drive.google.com/open?id=").length); // 抓圖片id 
+
+        let output = "https://drive.google.com/uc?export=view&id=" + imgId;// 改成Google Drive圖片可對外嵌入的方式
+         
+        let key = "head_img";
+        localStorage.setItem(key,output);
+};
+
 function addDarkmodeWidget() {
     const options = {
         bottom: '100px', // default: '32px'
@@ -142,9 +177,9 @@ function addDarkmodeWidget() {
 })(jQuery);  
 $(function(){  
     $.fn.snow({   
-        minSize: 5, // 定义雪花最小尺寸 
+      minSize: 5, // 定义雪花最小尺寸 
       maxSize: 50,// 定义雪花最大尺寸  
-        newOn: 300  // 定义密集程度，数字越小越密集  
+      newOn: 300  // 定义密集程度，数字越小越密集  
    });  
 });
 //  
@@ -276,4 +311,4 @@ $(function(){
      }
      // 调用及控制方法 
      var snow = new snowFall({maxFlake:60});
-     snow.start();
+
