@@ -23,6 +23,9 @@
 
     <img  class="blank"  src="img_source\blank.png">
     <img  id="wood" src="img_source\bg\wood.png" >
+    <div id="score">0</div>
+    <div class="bar" ></div>
+    <div class="bar"id="orinbar"></div>
     <img id="xp" src="xp.png">
 
     
@@ -34,6 +37,7 @@
                 <img class="sp" id="sp1" src="img_source\food\special\8.png">
                 <img class="sp" id="sp2" src="img_source\food\special\8.png">
             </div>
+            <div class="left"></div>
             <img    class="box" src="img_source\bg\box.png">
         </div>
         <div>    
@@ -43,6 +47,7 @@
                 <img class="sp" id="sp4" src="img_source\food\special\0.png">
                 <img class="sp" id="sp5" src="img_source\food\special\0.png">
             </div>
+            <div class="left"></div>
             <img    class="box" src="img_source\bg\box.png">
         </div>
     </div>
@@ -57,6 +62,7 @@
                 <img class="sp" id="egg4" src="img_source\food\fresh\3egg.png">
 
             </div>
+            <div class="left"></div>
             <img  class="blank"  src="img_source\blank.png">
     </div>   
 </div>
@@ -71,6 +77,7 @@
                     <img class="sp" id="tom4" src="img_source\food\fresh\4tomato.png">
     
                 </div>
+                <div class="left"></div>
                 <img src="img_source\bg\blanket.png" class="tom_blanket" >
                 <img  class="blank" id="tomb" src="img_source\blank.png">
                 
@@ -83,13 +90,41 @@
                     <img class="sp" id="noodle1" src="img_source\food\fresh\3noodle.png">
                     <img class="sp" id="noodle2" src="img_source\food\fresh\3noodle.png">
                     <img class="sp" id="noodle3" src="img_source\food\fresh\3noodle.png">
-    
+                    <img class="sp" id="noodle4" src="img_source\food\fresh\3noodle.png">
                 </div>
+                <div class="left"></div>
                 <img  class="blank"  src="img_source\blank.png">
                 
         </div>
     </div>  
-    
+    <div  class="special" id="fri">
+        <div>
+                <div class="food" id="tom_0">
+                    <img class="sp" id="fri0" src="img_source\food\fresh\5fri.png">
+                    <img class="sp" id="fri1" src="img_source\food\fresh\5fri.png">
+                    <img class="sp" id="fri2" src="img_source\food\fresh\5fri.png">
+                    <img class="sp" id="fri3" src="img_source\food\fresh\5fri.png">
+                    <img class="sp" id="fri4" src="img_source\food\fresh\5fri.png">
+                </div>
+                <div class="left"></div>
+                <img  class="blank"  src="img_source\blank.png">
+                
+        </div>
+    </div>  
+    <div  class="special" id="chi">
+        <div>
+                <div class="food" id="tom_0">
+                    <img class="sp" id="chi0" src="img_source\food\fresh\6chi.png">
+                    <img class="sp" id="chi1" src="img_source\food\fresh\6chi.png">
+                    <img class="sp" id="chi2" src="img_source\food\fresh\6chi.png">
+                    <img class="sp" id="chi3" src="img_source\food\fresh\6chi.png">
+                    <img class="sp" id="chi4" src="img_source\food\fresh\6chi.png">
+                </div>
+                <div class="left"></div>
+                <img  class="blank"  src="img_source\blank.png">
+                
+        </div>
+    </div>  
 
 
     <div id="guest0" class="guest_0">
@@ -100,26 +135,13 @@
         </div>
         
     </div>
-    <div id="guest1" class="guest_0">
-        <div id="1" class="g">
-            
-            <img  class="guest"  src="img_source\guest.png">
-        </div>
-        
-    </div>
-    <div id="guest2" class="guest_0">
 
-        <div id="2" class="g">
-            
-            <img  class="guest"  src="img_source\guest.png">
-        </div>
-        
-    </div>
+    <img id="miss" src="miss.png">
     <img  id="sky" class="sky" src="img_source\sky.jpg" >
 
 
 <script >
-    let wid=window.innerWidth;
+    let wid=window.innerWidth,score=0;
     img_resize();
     $(document).ready(function(){
 
@@ -131,7 +153,7 @@
             
             _link.appendTo("head");
         });
-        for(let i=0;i<2;i++)$("#guest"+i).animate({top:"+=600px"},10);
+        for(let i=0;i<1;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
         ds.ondragstart=function(event){
@@ -150,12 +172,18 @@
                 wast.style.width=""+wid/6+"px";
                 $(document).ready(function(){
                     $(event.target.parentNode).prepend(wast);
-                    $(wast).css("top",""+(parseInt($('#guest'+wast.parentNode.id).css("top"))-200)+"px");//待調整
+                    $(wast).css("top",""+(wid/9-parseInt($('#guest'+wast.parentNode.id).css("top")))+"px");//待調整
                     console.log(parseInt($('#guest'+wast.parentNode.id).css("top")));
                     $(tar).hide();
+                    score+=parseInt(d[d.length-1][0]);
+                    $("#score").html(score);
                 });
         
     }});
+    window.setTimeout(function(){//計時
+        alert(score);
+        $("#guest0").css("top","1200px").stop();
+    },60000);
             for(let i=0,pos,speed;i<1000;i++){                     //guest移動
                 pos=Math.floor(Math.random()*(wid/6*3))+wid/6;
                 speed=((Math.floor(Math.random()*7))+3)*100;
@@ -170,9 +198,9 @@
             let ev=e.originalEvent.dataTransfer.getData("text");
             let t=document.querySelector('#'+ev);
             $(t).hide();
+            $("#miss").show(1).fadeOut(1000);
             console.log(ev);
         });
-
     });
 
 </script>
