@@ -43,7 +43,7 @@ function img_resize() {
     
 
     for(let i=0;i<6;i++){
-        $("#sp"+i).mouseover(function(){$(this).css("width",""+wid/11+"px");});   //
+        $("#sp"+i).mouseover(function(){$(this).css("width",""+wid/10+"px");});   //
         $("#sp"+i).mouseout(function(){$(this).css("width",""+wid/12+"px");});}    //
         for(let i=0;i<5;i++){
             $("#egg"+i).mouseover(function(){$(this).css("width",""+wid/33+"px");});   //
