@@ -83,7 +83,7 @@ function doani(){
             "top":"-=52px",
         })
     })
-    $("#button").click(function(){
+    $("#door_out").click(function(){
         do_google();
     })
 }
