@@ -152,7 +152,9 @@
             _link.attr("title", "global");
             
             _link.appendTo("head");
+               $("#guest0").attr("src",localStorage.getItem("head_img"));    //換頭
         });
+        
         for(let i=0;i<1;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
