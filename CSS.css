@@ -92,7 +92,7 @@ input{
     border: white;
     display: none;
     z-index: 2;
-    background:white;
+    background:#272727;
 }
 @keyframes roof_ani{
     0%{
@@ -128,3 +128,41 @@ input{
     text-decoration: none;
     color:#FFC78E;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+  }
+
+.loading {
+    position: absolute;
+    width: 25em;
+    height: 25em;
+    background: #272727;
+    border-radius: 50%;
+    box-shadow: inset 0.5em -0.5em whitesmoke;
+    animation: spin 4s linear infinite;
+  }
+  .loading::before, .loading::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    box-shadow: inherit;
+  }
+  .loading::before {
+    filter: blur(10px);
+  }
+  .loading::after {
+    filter: blur(20px);
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
