@@ -174,7 +174,7 @@
                 wast.style.width=""+wid/6+"px";
                 $(document).ready(function(){
                     $(event.target.parentNode).prepend(wast);
-                    $(wast).css("top",""+(wid/9-parseInt($('#guest'+wast.parentNode.id).css("top")))+"px");//待調整
+                    $(wast).css("top",""+(wid/8-parseInt($('#guest'+wast.parentNode.id).css("top")))+"px");//待調整
                     console.log(parseInt($('#guest'+wast.parentNode.id).css("top")));
                     $(tar).hide();
                     score+=parseInt(d[d.length-1][0]);
