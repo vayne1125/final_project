@@ -40,7 +40,11 @@ function image_repos(){
             "left" : ""+(wid/3-60)+"px",
             "top"  : ""+(hei/4+130)+"px",
         })
-    
+        
+        $(".loading").css({
+            "left" : ""+(wid/3)+"px",
+            "top"  : ""+(hei/4-40)+"px",
+        })
     });
     doani();
 }
@@ -83,7 +87,7 @@ function doani(){
             "top":"-=52px",
         })
     })
-     $("#button").click(function(){
+    $("#button").click(function(){
         do_google();
     })
 }
@@ -174,31 +178,29 @@ function addDarkmodeWidget() {
     });  
     }, options.newOn);  
     };  
-})(jQuery);  
-$(function(){  
-    $.fn.snow({   
-      minSize: 5, // 定义雪花最小尺寸 
-      maxSize: 50,// 定义雪花最大尺寸  
-      newOn: 300  // 定义密集程度，数字越小越密集  
-   });  
-});
-//  
-//
+    })(jQuery);  
+    $(function(){  
+        $.fn.snow({   
+            minSize: 5, // 定义雪花最小尺寸 
+            maxSize: 50,// 定义雪花最大尺寸  
+            newOn: 300  // 定义密集程度，数字越小越密集  
+        });  
+    });
 
-       // 控制下雪 
-       function snowFall(snow) {
-           // 可配置属性
-           snow = snow || {};
-           this.maxFlake = snow.maxFlake || 200;   // 最多片数
-           this.flakeSize = snow.flakeSize || 10;  // 雪花形状 
-           this.fallSpeed = snow.fallSpeed || 0.02;   // 坠落速度 
-     }
-      // 兼容写法
-      requestAnimationFrame = window.requestAnimationFrame ||
-          window.mozRequestAnimationFrame ||
-          window.webkitRequestAnimationFrame ||
-          window.msRequestAnimationFrame ||
-          window.oRequestAnimationFrame ||
+// 控制下雪 
+function snowFall(snow) {
+    // 可配置属性
+    snow = snow || {};
+    this.maxFlake = snow.maxFlake || 200;   // 最多片数
+    this.flakeSize = snow.flakeSize || 10;  // 雪花形状 
+    this.fallSpeed = snow.fallSpeed || 0.02;   // 坠落速度 
+}
+// 兼容写法
+requestAnimationFrame = window.requestAnimationFrame ||
+window.mozRequestAnimationFrame ||
+window.webkitRequestAnimationFrame ||
+window.msRequestAnimationFrame ||
+window.oRequestAnimationFrame ||
           function(callback) { setTimeout(callback, 1000 / 60); };
   
       cancelAnimationFrame = window.cancelAnimationFrame ||
