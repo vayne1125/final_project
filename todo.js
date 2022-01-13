@@ -40,7 +40,6 @@ function image_repos(){
             "left" : ""+(wid/3-60)+"px",
             "top"  : ""+(hei/4+130)+"px",
         })
-
     
     });
     doani();
@@ -84,11 +83,8 @@ function doani(){
             "top":"-=52px",
         })
     })
-    $("#start").click(function(){
+    $("#button").click(function(){
         do_google();
-    })
-    $("tp").click(function(){
-        localStorage.click();
     })
 }
 
@@ -120,6 +116,7 @@ function display(resultJson) {
          
         let key = "head_img";
         localStorage.setItem(key,output);
+        console.log(output);
 };
 
 function addDarkmodeWidget() {
