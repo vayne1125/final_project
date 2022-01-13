@@ -11,6 +11,8 @@ body{
 
 .blank{
     z-index: -1;
+    width: 1px;
+    height: 1px;
 }
 
 .wasted{
@@ -72,4 +74,25 @@ body{
 #spp{
     z-index: 88;
 }
+.bar{
+    height: 10px;
+    background-color: white ;
+    position: absolute;
+    left: 10px;
+    border: solid 3px #ff7f50;
+}
+#miss{
+    position: absolute;
+    
+}
+#score{
+    position: absolute;
+    right: 30px;
+    font-size: 50px;
+}
+.left{
+    display: none;
+}
+
+
 
