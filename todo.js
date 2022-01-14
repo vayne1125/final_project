@@ -1,7 +1,8 @@
-let hei = window.innerHeight;
-let wid = window.innerWidth;
+let hei = window.innerHeight+11;
+let wid = window.innerWidth-30;
 function image_repos(){
     $(document).ready(function(){
+        acc_snow();
         $("#roof").css({
             "left" : ""+wid/3+"px",
             "top"  : ""+hei/4+"px",
@@ -53,6 +54,7 @@ function doani(){
     $("#door_out").hide();
     $("#cloud").hide();
     $("#apple_with_board").hide();
+    $("#moon").hide();
     $("#roof").addClass("roof_")
     setTimeout(function(){
         $("#house").addClass("house_")
@@ -90,6 +92,9 @@ function doani(){
     $("#button").click(function(){
         do_google();
     })
+    setTimeout(function(){
+        $("#moon").fadeIn();
+    },4500)
 }
 function delayURL(url,time){
     setTimeout("top.location.href = '"  + url   +"'",time);
@@ -106,7 +111,61 @@ function do_google(){
     //console.log(url);
     $.getScript(url); //取回Google Spreadsheet API回傳之JS code並執行
 }
-       
+/*
+function acc_snow(){
+    let snow_under = new Array;
+
+    for(let i=0;i<wid*10;i++){
+        snow_under[i] = hei;
+    }
+
+    $("#canvas").attr({"width":wid,"height":hei});
+        var ctx = document.getElementById('canvas').getContext('2d');
+        setInterval(function(){
+            let size = Math.floor(Math.random()*15);
+            let x = wid * Math.random();
+            //let x = 100;
+            var tp = ctx.createRadialGradient(x, snow_under[Math.floor(x*10)], 0, x,snow_under[Math.floor(x*10)], size);
+            tp.addColorStop(0, "rgba(255, 255, 255, 0.9)");  
+            tp.addColorStop(.5, "rgba(255, 255, 255, 0.5)"); 
+            tp.addColorStop(1, "rgba(255, 255, 255, 0)");
+            ctx.arc(x, snow_under[Math.floor(x*10)], size, 0, 2*Math.PI);
+            ctx.fillStyle = tp;
+            ctx.fill();
+            ctx.restore();
+            snow_under[Math.floor(x*10)]-=(size/1.2);
+           // console.log(snow_under[Math.floor(x*100)]);
+        },10);
+}*/
+function acc_snow() {
+    let snow_under = new Array;
+    let cnt = 0;
+    for(let i=0;i<wid*10;i++){
+            snow_under[i] = hei;
+    }
+    let next_time = 50 + Math.random() * 500;
+    setInterval(function(){
+          next_time = 50 + Math.random() * 500;
+          let size = Math.floor(Math.random()*15);
+          let x = wid * Math.random();
+          var snow = document.createElement("canvas");
+          snow.id = "mysnow";
+          snow.width = wid;
+          snow.height = hei;
+          snow.setAttribute("style", "position:absolute; top: "+ x + "; left: "+ snow_under[Math.floor(x*10)] +"; z-index: 2; pointer-events: none;");
+          document.getElementById("body").appendChild(snow);
+          var ctx = document.getElementById('mysnow').getContext('2d');
+          var tp = ctx.createRadialGradient(x, snow_under[Math.floor(x*10)], 0, x,snow_under[Math.floor(x*10)], size);
+          tp.addColorStop(0, "rgba(255, 255, 255, 0.9)");  
+          tp.addColorStop(.5, "rgba(255, 255, 255, 0.5)"); 
+          tp.addColorStop(1, "rgba(255, 255, 255, 0)");
+          ctx.arc(x, snow_under[Math.floor(x*10)], size, 0, 2*Math.PI);
+          ctx.fillStyle = tp;
+          ctx.fill();
+          snow_under[Math.floor(x*10)]-=size/1.5;
+    },next_time);     
+}
+
 function display(resultJson) {
 
        // console.log(resultJson); //印出回傳結果，可仔細觀察一下Google試算表回傳之JSON內容
@@ -145,24 +204,25 @@ function addDarkmodeWidget() {
 }
  
 
-(function($){  
+function snow1(){(function($){
    $.fn.snow = function(options){  
-    var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px', 'cursor': 'pointer'}).html('❄'),  
-    documentHeight  = $(document).height(),  
-    documentWidth   = $(document).width(),  
+    var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'2', 'top': '5px', 'cursor': 'pointer'}).html('❄'),  
+    documentHeight  = hei,  
+    documentWidth   = wid,  
     defaults = {  
-        minSize     : 10,  
-        maxSize     : 20,  
+        minSize     : 8,  
+        maxSize     : 15,  
         newOn       : 1000,  
         flakeColor  : "#D9FFFF" // 此处可以定义雪花颜色，若要白色可以改为#FFFFFF  //#80FFFF  #AFDAEF
     },  
     options = $.extend({}, defaults, options);  
     var interval= setInterval( function(){  
-    var startPositionLeft = Math.random() * documentWidth - 100,  
+    var startPositionLeft = Math.random() * documentWidth , //-100 
     startOpacity = 0.5 + Math.random(),  
     sizeFlake = options.minSize + Math.random() * options.maxSize,  
-    endPositionTop = documentHeight - 200,  
+    endPositionTop = documentHeight -100,  
     endPositionLeft = startPositionLeft - 500 + Math.random() * 500,  
+   //endPositionLeft = 0 + Math.random() * wid,  
     durationFall = documentHeight * 10 + Math.random() * 5000;  
     $flake.clone().appendTo('body').css({  
         left: startPositionLeft,  
@@ -186,7 +246,7 @@ function addDarkmodeWidget() {
             newOn: 300  // 定义密集程度，数字越小越密集  
         });  
     });
-
+}
 // 控制下雪 
 function snowFall(snow) {
     // 可配置属性
@@ -201,7 +261,7 @@ window.mozRequestAnimationFrame ||
 window.webkitRequestAnimationFrame ||
 window.msRequestAnimationFrame ||
 window.oRequestAnimationFrame ||
-          function(callback) { setTimeout(callback, 1000 / 60); };
+function(callback) { setTimeout(callback, 1000 / 60); };
   
       cancelAnimationFrame = window.cancelAnimationFrame ||
           window.mozCancelAnimationFrame ||
@@ -222,16 +282,16 @@ window.oRequestAnimationFrame ||
           // 添加Dom结点
           var snowcanvas = document.createElement("canvas");
           snowcanvas.id = "snowfall";
-          snowcanvas.width = window.innerWidth;
+          snowcanvas.width = wid;
           snowcanvas.height = hei;
-          snowcanvas.setAttribute("style", "position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;");
+          snowcanvas.setAttribute("style", "position:absolute; top: 1; left: 1; z-index: 1; pointer-events: none;");
           document.getElementsByTagName("body")[0].appendChild(snowcanvas);
           this.canvas = snowcanvas;
           this.ctx = snowcanvas.getContext("2d");
           // 窗口大小改变的处理
           window.onresize = function() {
-              snowcanvas.width = window.innerWidth;
-              // snowcanvas.height = window.innerHeight
+              snowcanvas.width = wid;
+              snowcanvas.height = hei;
           }
       }
       // 雪运动对象
@@ -260,9 +320,9 @@ window.oRequestAnimationFrame ||
           this.y += this.velY;
           this.x += this.velX;
           // 飞出边界的处理 
-          if (this.x >= canvas.width || this.x <= 0 || this.y >= canvas.height || this.y <= 0) {
-              this.reset(canvas.width, canvas.height)
-          }
+          if (this.x >= wid || this.x <= 0 || this.y >= hei || this.y <= 0) {
+            this.reset(wid, hei)
+        }
       };
       // 飞出边界-放置最顶端继续坠落 
       flakeMove.prototype.reset = function(width, height) {
@@ -313,4 +373,6 @@ window.oRequestAnimationFrame ||
      }
      // 调用及控制方法 
      var snow = new snowFall({maxFlake:60});
+
+
 
