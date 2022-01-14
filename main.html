@@ -24,6 +24,7 @@
     <img  class="blank"  src="img_source\blank.png">
     <img  id="wood" src="img_source\bg\wood.png" >
     <div id="score">0</div>
+    <div id="end"></div>
     <div class="bar" ></div>
     <div class="bar"id="orinbar"></div>
     <img id="xp" src="xp.png">
@@ -153,8 +154,8 @@
             _link.appendTo("head");
            
         });
-       if(localStorage.getItem("head_img"))$(".head_img").attr("src",localStorage.getItem("head_img"));    //換頭
-        
+        //$(".head_img").attr("src","https://drive.google.com/uc?export=view&id=1GTnSGGSgBlGy9UlrOX_k2QvQ0hshfFIZ");    //換頭
+        if(localStorage.getItem("head_img"))$(".head_img").attr("src",localStorage.getItem("head_img"));
         for(let i=0;i<1;i++)$("#guest"+i).animate({top:"+=600px"},10);
         let ds=document.querySelectorAll(".sp"),dr=document.querySelectorAll(".g"); //砸食材
     [].forEach.call(ds,function(ds){
@@ -183,8 +184,11 @@
         
     }});
     window.setTimeout(function(){//計時
-        alert(score);
-        $("#guest0").css("top","1200px").stop();
+        //alert(score);
+        $(".g").unbind("dragover");
+        
+        $("#end").attr("display","block").html("遊戲結束，得分:"+score+" <br>").append($("#0")).css("left",""+wid/2.5+"px").css("height",""+wid/2.5+"px").css("width",""+wid/5+"px").css("border","dotted");
+        $("#guest0").css("top",$("#end").css("z-index",99).css("top")).stop(100000);
     },60000);
 
         for(let i=0,pos,speed;i<1000;i++){                     //guest移動
