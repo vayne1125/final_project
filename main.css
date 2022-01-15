@@ -57,7 +57,7 @@ body{
 }
 #wood{
     position: absolute;
-    left: 0px;
+    right: 0px;
     z-index: 50;
 }
 #xp{
