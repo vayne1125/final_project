@@ -20,7 +20,7 @@ function img_resize() {
      $(".bar").on("dragover",function(event){ event.preventDefault();});
      $("#miss").css("left",""+wid/8+"px").css("top",""+wid/20+"px").css("width",""+wid/4.8+"px").hide();
      $(".head_img").css("width",""+wid/7+"px");
-    $(".guest_0").css("top",""+wid/11+"px").css("left",""+wid/6+"px");
+    $(".guest_0").css("top",""+wid/11+"px").css("right",""+wid/6+"px");
 
     $(".special").css("top",""+wid/2.48+"px");//
 
