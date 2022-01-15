@@ -134,6 +134,7 @@ body {
     align-items: center;
     height: 100vh;
     background: #272727;
+    overflow:hidden;
   }
 
 .loading {
