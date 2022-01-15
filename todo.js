@@ -27,9 +27,10 @@ function image_repos(){
             "left" : ""+(wid/3+173.5)+"px",
             "top"  : ""+(hei/4+210)+"px",
         })
+
         $("#chimney").css({
             "left" : ""+(wid/3+270)+"px",
-            "top"  : ""+(hei/4)+"px",
+            "top"  : ""+(hei/4)+"px", 
         })
         
         $("#cloud").css({
@@ -42,15 +43,23 @@ function image_repos(){
             "top"  : ""+(hei/4+130)+"px",
         })
         
-        $(".loading").css({
+        $(".moon_").css({
             "left" : ""+(wid/3)+"px",
             "top"  : ""+(hei/4-40)+"px",
         })
+
+       $(".loadingio-spinner-spinner-zfwbrm7me7i").css({
+            "zIndex":0,
+            "left" : ""+(wid/3+90)+"px",
+            "top"  : ""+(hei/4+130)+"px"
+       })
+
     });
     doani();
 }
 function doani(){
     $("#start").hide();
+    $("#load").hide();
     $("#door_out").hide();
     $("#cloud").hide();
     $("#apple_with_board").hide();
@@ -74,6 +83,11 @@ function doani(){
             "top"  : "+=11px",
         });
     })
+/*
+    $("#body").mouseover(function(e){
+        console.log(e.target.id);
+    })
+*/
     $("#door_out").mouseout(function(){
         $("#door_out").css({
             "transform":"skewY(0deg)",
@@ -82,20 +96,46 @@ function doani(){
         });
     })
     $("#door_out").click(function(){
-        $("div div").fadeTo(100,0);
-        $("div div").hide();
+        $("#fade").fadeTo(100,0);
         $("#start").show();
         $("#restaurant").css({
             "top":"-=52px",
         })
     })
+    setTimeout(function(){
+        $("#roof").mouseover(function(){
+            let time = new Date();
+            cloud = document.createElement('img');
+            cloud.id = ("cloud"+time.getTime());
+            cloud.setAttribute("src","clouds.png");
+            cloud.setAttribute("style","position:absolute; left:0px ; top:0px;height:50px ;weight:50px");
+            document.getElementById("body").appendChild(cloud);
+            $("#"+cloud.id).css({
+                "left":(wid/3+270)+"px",
+                "top":(hei/4),
+                "opacity":"1",
+            }).animate({
+                "height":"-=10px",
+                "weight":"-=10px",
+                "left":"+=5px",
+                "top":"-=150px",
+                "opacity":"0",
+            },1500)
+           // console.log(cloud.id);
+        })
+    }, 4500);
+
     $("#button").click(function(){
         do_google();
+        $("#load").show();
+        $("#fade2").hide();
     })
+
     setTimeout(function(){
         $("#moon").fadeIn();
-    },4500)
+    },4500)   
 }
+
 function delayURL(url,time){
     setTimeout("top.location.href = '"  + url   +"'",time);
 }
@@ -162,7 +202,13 @@ function acc_snow() {
           ctx.arc(x, snow_under[Math.floor(x*10)], size, 0, 2*Math.PI);
           ctx.fillStyle = tp;
           ctx.fill();
-          snow_under[Math.floor(x*10)]-=size/1.5;
+          snow_under[Math.floor(x*10)]-=size;
+          snow_under[Math.floor(x*10)-3]-=size/2;
+          snow_under[Math.floor(x*10)-2]-=size/1.5;
+          snow_under[Math.floor(x*10)-1]-=size/1.2;
+          snow_under[Math.floor(x*10)+1]-=size/1.2;
+          snow_under[Math.floor(x*10)+2]-=size/1.5;
+          snow_under[Math.floor(x*10)+3]-=size/2;
     },next_time);     
 }
 
