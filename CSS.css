@@ -89,15 +89,18 @@ input{
     background:#272727;
 }
 .music_{
+  text-align:center;
   display: inline-block;
-  justify-content: center;
   position: absolute;
   width: 70px;
   height: 30px;
+  vertical-align:middle;
   z-index: 7;
-  font-size: 2em;
-  color:red;
+  font-size:20px;
+  color:white;
+  background:#272727;
 }
+
 @keyframes roof_ani{
     0%{
         border-width: 100px 100px 100px 100px;
