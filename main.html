@@ -188,7 +188,7 @@
         //alert(score);
         $(".g").unbind("dragover");
         
-        $("#end").attr("display","block").html("遊戲結束，得分:"+score+" <br>Alt + ←回主頁<br>").append($("#0")).css("left",""+wid/2.5+"px").css("height",""+wid/2.5+"px").css("width",""+wid/3+"px");
+        $("#end").attr("display","block").html("遊戲結束，得分:"+score+" <br>|Alt + ←|回主頁<br>").append($("#0")).css("left",""+wid/2.5+"px").css("height",""+wid/2.5+"px").css("width",""+wid/3+"px");
         $("#guest0").css("top",$("#end").css("z-index",99).css("top")).stop(100000);
     },60000);
 
