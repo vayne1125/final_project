@@ -41,6 +41,7 @@ body{
 
 .guest{
     position: absolute;
+    z-index: 3;
 }
 
 
