@@ -48,6 +48,11 @@ function image_repos(){
             "top"  : ""+(hei/4-40)+"px",
         })
 
+        $(".music_").css({
+            "left" : ""+(wid/3+270)+"px",
+            "top"  : ""+(hei/4+260)+"px",
+        })
+
        $(".loadingio-spinner-spinner-zfwbrm7me7i").css({
             "zIndex":0,
             "left" : ""+(wid/3+90)+"px",
@@ -58,6 +63,7 @@ function image_repos(){
     doani();
 }
 function doani(){
+    $("#music").hide(); //
     $("#start").hide();
     $("#load").hide();
     $("#door_out").hide();
@@ -68,15 +74,19 @@ function doani(){
     setTimeout(function(){
         $("#house").addClass("house_")
     },3000)
+
     setTimeout(function(){
         $("#apple_with_board").fadeTo(2500,1);
         $("#restaurant").fadeTo(3000,1);
     },4500)
+
     setTimeout(function(){
         $("#door_out").fadeIn();
         $("#door_in").fadeIn();
         $("#chimney").fadeIn();
+        $("#music").fadeIn();
     },4500)
+    
     $("#door_out").mouseover(function(){
         $("#door_out").css({
             "transform":"skewY(20deg)",
@@ -134,6 +144,16 @@ function doani(){
     setTimeout(function(){
         $("#moon").fadeIn();
     },4500)   
+    let music = 0;
+    $("#music").click(function(){
+        if(music){
+            document.getElementById("aud").play();
+            music = 0;
+        }else{
+            document.getElementById("aud").pause();
+            music = 1;
+        }
+    })
 }
 
 function delayURL(url,time){
@@ -188,7 +208,7 @@ function acc_snow() {
           next_time = 50 + Math.random() * 500;
           let size = Math.floor(Math.random()*15);
           let x = wid * Math.random();
-          var snow = document.createElement("canvas");
+          let snow = document.createElement("canvas");
           snow.id = "mysnow";
           snow.width = wid;
           snow.height = hei;
@@ -419,6 +439,3 @@ function(callback) { setTimeout(callback, 1000 / 60); };
      }
      // 调用及控制方法 
      var snow = new snowFall({maxFlake:60});
-
-
-
