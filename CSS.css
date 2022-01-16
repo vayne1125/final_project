@@ -234,7 +234,7 @@ body {
   position:absolute;
   display: inline-block;
   overflow: hidden;
-  background: #272727;
+  background: transparent;
 }
 .ldio-b80x8xf4rvl {
   width: 100%;
