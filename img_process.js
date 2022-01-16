@@ -16,7 +16,7 @@ function img_resize() {
      $(".blank").css("width",""+wid/6+"px").css("height","1px");
      $(".g").on("dragover",function(event){ event.preventDefault();});
      $(".sky").on("dragover",function(event){ event.preventDefault();}); ///
-     $("#bgm").css("width",""+wid+"px").on("dragover",function(event){ event.preventDefault();});
+     $("#bgm").on("dragover",function(event){ event.preventDefault();});
      $(".bar").on("dragover",function(event){ event.preventDefault();});
      $("#miss").css("left",""+wid/8+"px").css("top",""+wid/20+"px").css("width",""+wid/4.8+"px").hide();
      $(".head_img").css("width",""+wid/7+"px");
