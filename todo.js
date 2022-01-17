@@ -38,6 +38,10 @@ function image_repos(){
             "top"  : ""+(hei/4)+"px",
         })
     
+        $("#intro").css({
+            "left" : ""+(wid/3+150)+"px",
+            "top"  : ""+(hei/4+320)+"px",
+        })
         $("#start").css({
             "left" : ""+(wid/3-60)+"px",
             "top"  : ""+(hei/4+130)+"px",
@@ -72,6 +76,7 @@ function doani(){
     $("#start").hide();
     $("#start2").hide();
     $("#load").hide();
+    $("#intro").hide();
     $("#door_out").hide();
     $("#cloud").hide();
     $("#apple_with_board").hide();
@@ -91,6 +96,7 @@ function doani(){
         $("#door_in").fadeIn();
         $("#chimney").fadeIn();
         $("#music").fadeIn();
+        $("#intro").fadeIn();
     },4500)
 
     $("#door_out").mouseover(function(){
@@ -114,6 +120,7 @@ function doani(){
     $("#door_out").click(function(){
         $("#fade").fadeTo(100,0);
         $("#start").show();
+        $("#intro").fadeTo(100,0);
         $("#restaurant").css({
             "top":"-=52px",
         })
@@ -124,6 +131,7 @@ function doani(){
         $("#restaurant").css({
             "top":"-=52px",
         })
+        $("#intro").fadeTo(100,0);
     })
     setTimeout(function(){
         $("#roof").mouseover(function(){
