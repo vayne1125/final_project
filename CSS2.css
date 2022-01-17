@@ -61,17 +61,63 @@ body{
 }
 
 .guest1{
-    position: absolute;
+    position:absolute;
+    width: 200px;
 }
 
 .guest2{
-    position: absolute;
+    position:absolute;
+    width: 200px;
 }
 
 .guest3{
-    position: absolute;
+    position:absolute;
+    width: 200px;
 }
 
 .guest4{
-    position: absolute;
+    position:absolute;
+    width: 200px;
+}
+
+.want1{
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+    color: white;
+}
+.want2{
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+    color: white;
+}
+.want3{
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+    color: white;
+}
+.want4{
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+    color: white;
+}
+
+.score{
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+    color: white;
 }
