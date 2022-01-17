@@ -71,6 +71,11 @@ body{
   display: none;
   color: white;
 }
+#intro{
+  position : absolute;
+  z-index: 10;
+  color: white;
+}
 #button{
     background-color: rgb(241, 229, 211)
 }
