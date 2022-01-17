@@ -10,37 +10,80 @@
 <script>
   $(document).ready(function(){
     image_repos();
+    let time = 45;
+    $("#end").hide();
+    let tp = setInterval(function(){
+      time--;
+      $("#time").html("時間 : "+time+" sec");
+      if(time == 0){
+        $("#guest1").hide();
+        $("#guest2").hide();
+        $("#guest3").hide();
+        $("#guest4").hide();
+        $("#want1").hide();
+        $("#want2").hide();
+        $("#want3").hide();
+        $("#want4").hide();
+        $("#end").show();
+        endgame = 1;
+        $("#abc").html("得分 : "+score+"<br>"+'<a href = https://vayne1125.github.io/final_project/ ><input type = "button" value = "返回主畫面" id = "button"></a>')
+        clearInterval(tp);
+      }
+    },1000)
     snow.start();
     call_1();
     call_2();
+    call_3();
+    call_4();
   })
 </script>
 <body>
     <img src = "wood.png" id = "wood" class = "wood_"></img>
     <img src = "cook_1.png" class = "cook_1" ondrop="toDrop(event)" ondragover="allowDrop(event)" id = "cook_1"></img>
+    <img src = "cook_3.png" class = "cook_3" ondrop="toDrop(event)" ondragover="allowDrop(event)" id = "cook_3"></img>
     <img src = "cook_2.png" class = "cook_2" ondrop="toDrop(event)" ondragover="allowDrop(event)" id = "cook_2"></img>
     <img src = "fish.png" draggable = true ondragstart = beginDrag(event) id = "fish" class = "fish">
     <img src = "egg.png" draggable = true ondragstart = beginDrag(event) id = "egg" class = "egg">
-    <img src = "fish_ok.png" draggable = true ondragstart = beginDrag(event) id = "fish_ok" id = "fish_ok" class = "fish_ok">
-    <img src = "egg_ok.png" draggable = true ondragstart = beginDrag(event)  id = "egg_ok" id = "egg_ok" class = "egg_ok">
+    <img src = "fish_ok.png" draggable = true ondragstart = beginDrag(event) id = "fish_ok" class = "fish_ok">
+    <img src = "fri.png" draggable = true ondragstart = beginDrag(event) id = "fri" class = "fri_1">
+    <img src = "fri.png" draggable = true ondragstart = beginDrag(event) id = "fri" class = "fri_3">
+    <img src = "fri.png" draggable = true ondragstart = beginDrag(event) id = "fri" class = "fri_2">
+    <img src = "egg_ok.png" draggable = true ondragstart = beginDrag(event)  id = "egg_ok" class = "egg_ok">
+    <img src = "chicken.png" draggable = true ondragstart = beginDrag(event) id = "chicken" class = "chicken">
+    <img src = "chicken_ok.png" draggable = true ondragstart = beginDrag(event) id = "chicken_ok" id = "chicken_ok" class = "chicken_ok">
+    <img src = "noodle.png" draggable = true ondragstart = beginDrag(event) id = "noodle" class = "noodle">
+    <img src = "apple.png" draggable = true ondragstart = beginDrag(event) id = "apple" class = "apple">
+    <img src = "pear.png" draggable = true ondragstart = beginDrag(event) id = "pear" class = "pear">
+    <img src = "noodle_ok.png" draggable = true ondragstart = beginDrag(event)  id = "noodle_ok" class = "noodle_ok">
     <div id = "time_cook_1" class = time_cook_1></div>
     <div id = "time_cook_2" class = time_cook_2></div>
+    <div id = "time_cook_3" class = time_cook_3></div>
+    <div id = "time" class = time>時間 : sec</div>
     <div id = "score" class = score>得分 : 0</div>
+    <div id = "music" class = music>music : off</div>
+    <div id = "end" class = end>
+    <div id = "abc">得分 :<br>
+      <a href = https://vayne1125.github.io/final_project/ ><input type = "button" value = "返回主畫面" id = "button"></a>
+    </div>
+    </div>
     <div>
       <img id = "guest1" src = "guest.png" class = "guest1"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
-      <div id = "want1" class = "want1">要烤魚!!</div>
+      <div id = "want1" class = "want1"></div>
     </div>
     <div>
       <img id = "guest2" src = "guest.png" class = "guest2"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
-      <div id = "want2" class = "want2">要烤魚!!</div>
+      <div id = "want2" class = "want2"></div>
     </div>
     <div>
       <img id = "guest3" src = "guest.png" class = "guest3"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
-      <div id = "want3" class = "want3">要烤魚!!</div>
+      <div id = "want3" class = "want3"></div>
     </div>
     <div>
       <img id = "guest4" src = "guest.png" class = "guest4"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
-      <div id = "want4" class = "want4">要烤魚!!</div>
+      <div id = "want4" class = "want4"></div>
     </div>
+    <audio id="aud" preload="auto">  
+      <source src="mus.mp3"type="audio/ogg">
+  </audio>
 </body>
 </html>
