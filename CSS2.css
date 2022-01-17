@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+.time_cook_1{
+    color: black;
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+}
+.time_cook_2{
+    color: white;
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+}
+.cook_1{
+    position:absolute;
+    width: 200px;
+    z-index: 4;
+}
+
+.cook_2{
+    position:absolute;
+    width: 180px;
+    z-index: 4;
+}
+
+.fish{
+    position:absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+.fish_ok{
+    position:absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+.egg{
+    position:absolute;
+    z-index: 5;
+}
+
+.egg_ok{
+    position:absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+.wood_{
+    position:absolute;  
+    z-index: 3; 
+    width: 1250px;
+}
+body{
+   font-family: 'Vujahday Script', cursive;
+   background-color: #272727;
+}
+
+.guest1{
+    position: absolute;
+}
+
+.guest2{
+    position: absolute;
+}
+
+.guest3{
+    position: absolute;
+}
+
+.guest4{
+    position: absolute;
+}
