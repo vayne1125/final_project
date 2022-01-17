@@ -1,7 +1,22 @@
 let hei = window.innerHeight;
 let wid = window.innerWidth;
+let score = 0;
 function image_repos(){
     $(document).ready(function(){
+
+        $("#body").mouseover(function(e){
+            console.log(e.target.id);
+        })    
+        $("#fish_ok").hide();
+        $("#egg_ok").hide();
+        $("#guest1").hide();
+        $("#guest2").hide();
+        $("#guest3").hide();
+        $("#guest4").hide();
+        $("#want1").hide();
+        $("#want2").hide();
+        $("#want3").hide();
+        $("#want4").hide();
         $("#wood").css({
             "top":(hei/3+140)+"px",
             "width":(wid-10)+"px",
@@ -66,12 +81,55 @@ function image_repos(){
             "top":(hei/3-200)+"px",
             "left":(wid/2+150)+"px",
         })
+
+        $(".want1").css({
+            "top":(hei/3-150)+"px",
+            "left":(wid/2-350)+"px",
+        })
+
+        $(".want2").css({
+            "top":(hei/3-150)+"px",
+            "left":(wid/2-150)+"px",
+        })
+
+        $(".want3").css({
+            "top":(hei/3-150)+"px",
+            "left":(wid/2+50)+"px",
+        })
+
+        $(".want4").css({
+            "top":(hei/3-150)+"px",
+            "left":(wid/2+250)+"px",
+        })
     })
 }
-function customer(){
-    let food = ["要烤魚!","要煎蛋!"]
 
+function call_1(){
+    let time = 500+Math.random()*2000;
+    let food = ["要烤魚!","要煎蛋!"];
+    let id = ["wantfish","wantegg"];
+    let tp = Math.floor(Math.random()*2);
+    setTimeout(function(){
+         $("#want1").html(food[tp]);
+         $("#guest1").fadeIn();
+         $("#want1").fadeIn();
+         $("#guest1").attr("id","guest1"+id[tp]);
+    }, time);
 }
+
+function call_2(){
+    let time = 500+Math.random()*2000;
+    let food = ["要烤魚!","要煎蛋!"];
+    let id = ["wantfish","wantegg"];
+    let tp = Math.floor(Math.random()*2);
+    setTimeout(function(){
+         $("#want2").html(food[tp]);
+         $("#guest2").fadeIn();
+         $("#want2").fadeIn();
+         $("#guest2").attr("id","guest1"+id[tp]);
+    }, time);
+}
+
 var IE = "ActiveXObject" in window ;
 var beginDrag = function(e){
     e.dataTransfer.setData("text", e.target.id);
@@ -105,7 +163,7 @@ var toDrop = function(e){  //放下時
             setTimeout(function(){
                 $("#fish").show();
                 cook_.setAttribute("src","cook_1.png");
-                document.getElementById("fish_ok").setAttribute("src","fish_ok.png");
+                $("#fish_ok").show();
                 document.getElementById("time_cook_1").innerHTML = "TimesOut!!!";
                 clearInterval(_5sec);
                 cook_.setAttribute("ondragover","allowDrop(event)");
@@ -127,13 +185,108 @@ var toDrop = function(e){  //放下時
             setTimeout(function(){
                 $("#egg").show();
                 cook_.setAttribute("src","cook_2.png");
-                document.getElementById("egg_ok").setAttribute("src","egg_ok.png");
+                $("#egg_ok").show();
                 document.getElementById("time_cook_2").innerHTML = "TimesOut!!!";
                 clearInterval(_3sec);
                 cook_.setAttribute("ondragover","allowDrop(event)");
             },3000)
         }
-
+    }else if(cook == "guest1wantfish"){   //guest1wantfish
+        if(food == "fish_ok"){
+            score++;            
+            $("#score").html("Score :"+score);
+            $("#fish_ok").hide();
+            $("#guest1wantfish").attr("id","guest1");
+            $("#want1").html("Thank~");
+            setTimeout(function(){
+                $("#guest1").fadeOut();
+                $("#want1").fadeOut();
+                call_1();
+            },500);    
+        }else{
+            if(food == "fish")
+                $("#want1").html("要熟的!!!");
+            else
+                $("#want1").html("不是這個!!!");
+            $("#guest1wantfish").attr("id","guest1");
+            setTimeout(function(){
+                $("#guest1").fadeOut();
+                $("#want1").fadeOut();
+                call_1();
+            },500);
+        }
+    }else if(cook == "guest1wantegg"){  //guest1wantegg
+        if(food == "egg_ok"){
+            score++;            
+            $("#score").html("Score :"+score);
+            $("#egg_ok").hide();
+            $("#guest1wantegg").attr("id","guest1");
+            $("#want1").html("Thank~");
+            setTimeout(function(){
+                $("#guest1").fadeOut();
+                $("#want1").fadeOut();
+                call_1();
+            },500);    
+        }else{
+            if(food == "egg")
+                $("#want1").html("要熟的!!!");
+            else 
+                $("#want1").html("不是這個!!!");
+            $("#guest1wantegg").attr("id","guest1");
+            setTimeout(function(){
+                $("#guest1").fadeOut();
+                $("#want1").fadeOut();
+                call_1();
+            },500);
+        }
+    }else if(cook == "guest2wantfish"){   //guest2wantfish
+        if(food == "fish_ok"){
+            score++;            
+            $("#score").html("Score :"+score);
+            $("#fish_ok").hide();
+            $("#guest2wantfish").attr("id","guest2");
+            $("#want2").html("Thank~");
+            setTimeout(function(){
+                $("#guest2").fadeOut();
+                $("#want2").fadeOut();
+                call_1();
+            },500);    
+        }else{
+            if(food == "fish")
+                $("#want2").html("要熟的!!!");
+            else
+                $("#want2").html("不是這個!!!");
+            $("#guest2wantfish").attr("id","guest2");
+            setTimeout(function(){
+                $("#guest2").fadeOut();
+                $("#want2").fadeOut();
+                call_2();
+            },500);
+        }
+    }else if(cook == "guest2wantegg"){  //guest2wantegg
+        if(food == "egg_ok"){
+            score++;            
+            $("#score").html("Score :"+score);
+            $("#egg_ok").hide();
+            $("#guest2wantegg").attr("id","guest2");
+            $("#want2").html("Thank~");
+            setTimeout(function(){
+                $("#guest2").fadeOut();
+                $("#want2").fadeOut();
+                call_2();
+            },500);    
+        }else{
+            if(food == "egg")
+                $("#want2").html("要熟的!!!");
+            else 
+                $("#want2").html("不是這個!!!");
+            $("#guest2wantegg").attr("id","guest2");
+            setTimeout(function(){
+                $("#guest2").fadeOut();
+                $("#want2").fadeOut();
+                call_2();
+            },500);
+        }
     }
 
 }
@@ -254,3 +407,5 @@ function(callback) { setTimeout(callback, 1000 / 60); };
          });
      } 
      var snow = new snowFall({maxFlake:60});
+
+  
