@@ -146,7 +146,7 @@ function doani(){
     },4500)   
     let music = 0;
     $("#music").click(function(){
-        if(music){
+        if(!music){
             document.getElementById("aud").play();
             music = 0;
         }else{
