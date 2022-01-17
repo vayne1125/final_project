@@ -39,11 +39,11 @@ function image_repos(){
         $("#music").click(function(){
             if(!music){
                 document.getElementById("aud").play();
-                $("#music").html("music : off");
+                $("#music").html("music : on");
                 music = 0;
             }else{
                 document.getElementById("aud").pause();
-                $("#music").html("music : on");
+                $("#music").html("music : off");
                 music = 1;
             }
         })
