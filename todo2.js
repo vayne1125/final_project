@@ -11,12 +11,12 @@ function image_repos(){
         $("#egg_ok").hide();
         $("#guest1").hide();
         $("#guest2").hide();
-        $("#guest3").hide();
-        $("#guest4").hide();
-        $("#want1").hide();
-        $("#want2").hide();
-        $("#want3").hide();
-        $("#want4").hide();
+       // $("#guest3").hide();
+       // $("#guest4").hide();
+       // $("#want1").hide();
+       // $("#want2").hide();
+       // $("#want3").hide();
+       // $("#want4").hide();
         $("#wood").css({
             "top":(hei/3+140)+"px",
             "width":(wid-10)+"px",
@@ -63,43 +63,43 @@ function image_repos(){
         })
 
         $(".guest1").css({
-            "top":(hei/3-200)+"px",
-            "left":(wid/2-450)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2-460)+"px",
         })
 
         $(".guest2").css({
-            "top":(hei/3-200)+"px",
-            "left":(wid/2-250)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2-255)+"px",
         })
 
         $(".guest3").css({
-            "top":(hei/3-200)+"px",
-            "left":(wid/2-50)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2-45)+"px",
         })
 
         $(".guest4").css({
-            "top":(hei/3-200)+"px",
-            "left":(wid/2+150)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2+155)+"px",
         })
 
         $(".want1").css({
-            "top":(hei/3-150)+"px",
-            "left":(wid/2-350)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2-390)+"px",
         })
 
         $(".want2").css({
-            "top":(hei/3-150)+"px",
-            "left":(wid/2-150)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2-190)+"px",
         })
 
         $(".want3").css({
-            "top":(hei/3-150)+"px",
-            "left":(wid/2+50)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2+10)+"px",
         })
 
         $(".want4").css({
-            "top":(hei/3-150)+"px",
-            "left":(wid/2+250)+"px",
+            "top":(hei/3-100)+"px",
+            "left":(wid/2+210)+"px",
         })
     })
 }
@@ -126,7 +126,7 @@ function call_2(){
          $("#want2").html(food[tp]);
          $("#guest2").fadeIn();
          $("#want2").fadeIn();
-         $("#guest2").attr("id","guest1"+id[tp]);
+         $("#guest2").attr("id","guest2"+id[tp]);
     }, time);
 }
 
@@ -249,7 +249,7 @@ var toDrop = function(e){  //放下時
             setTimeout(function(){
                 $("#guest2").fadeOut();
                 $("#want2").fadeOut();
-                call_1();
+                call_2();
             },500);    
         }else{
             if(food == "fish")
