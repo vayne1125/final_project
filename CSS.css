@@ -59,6 +59,18 @@ body{
     justify-content: center;
     text-align:center;
 }
+.start2_{
+  display: inline-block;
+  justify-content: center;
+  text-align:center;
+  border: solid;
+  border-width: 2.5px;
+  border-color:navajowhite;
+  position : absolute;
+  z-index: 10;
+  display: none;
+  color: white;
+}
 #button{
     background-color: rgb(241, 229, 211)
 }
