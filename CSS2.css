@@ -15,6 +15,59 @@
     display: inline-block;
     z-index: 5;
 }
+.time_cook_3{
+    color: white;
+    font-size: 3ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+}
+a{
+    text-decoration: none;
+}
+.end{
+    background:#272727;
+    width: 500px;
+    height: 100px;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    color: white;
+    font-size: 10ex;
+    border-style: solid;
+    border: #272727;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+}
+.end2{
+    background:#272727;
+    width: 500px;
+    height: 100px;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    color: white;
+    font-size: 10ex;
+    border-style: solid;
+    border: #272727;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+}
+
+.time{
+    color: white;
+    font-size: 8ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+}
+
 .cook_1{
     position:absolute;
     width: 200px;
@@ -27,6 +80,23 @@
     z-index: 4;
 }
 
+.cook_3{
+    position:absolute;
+    width: 200px;
+    z-index: 4;
+}
+
+.apple{
+    position:absolute;
+    width: 100px;
+    z-index: 4;
+}
+.pear{
+    position:absolute;
+    width: 100px;
+    z-index: 4;
+}
+
 .fish{
     position:absolute;
     width: 100px;
@@ -34,6 +104,49 @@
 }
 
 .fish_ok{
+    position:absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+.fri_1{
+    position:absolute;
+    z-index: 5;
+    width: 80px;
+}
+
+.fri_2{
+    position:absolute;
+    z-index: 5;
+    width: 80px;
+}
+
+.fri_3{
+    position:absolute;
+    z-index: 5;
+    width: 80px;
+}
+
+.chicken{
+    position:absolute;
+    width: 80px;
+    z-index: 5;
+}
+
+.chicken_ok{
+    position:absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+
+.noodle{
+    position:absolute;
+    width: 80px;
+    z-index: 5;
+}
+
+.noodle_ok{
     position:absolute;
     width: 100px;
     z-index: 5;
@@ -114,7 +227,16 @@ body{
 }
 
 .score{
-    font-size: 3ex;
+    font-size: 8ex;
+    position:absolute;
+    text-align:center;
+    display: inline-block;
+    z-index: 5;
+    color: white;
+}
+
+.music{
+    font-size: 8ex;
     position:absolute;
     text-align:center;
     display: inline-block;
