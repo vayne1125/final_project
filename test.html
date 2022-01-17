@@ -11,7 +11,8 @@
   $(document).ready(function(){
     image_repos();
     snow.start();
-    
+    call_1();
+    call_2();
   })
 </script>
 <body>
@@ -20,13 +21,26 @@
     <img src = "cook_2.png" class = "cook_2" ondrop="toDrop(event)" ondragover="allowDrop(event)" id = "cook_2"></img>
     <img src = "fish.png" draggable = true ondragstart = beginDrag(event) id = "fish" class = "fish">
     <img src = "egg.png" draggable = true ondragstart = beginDrag(event) id = "egg" class = "egg">
-    <img src = "" id = "fish_ok" id = "fish_ok" class = "fish_ok">
-    <img src = "" id = "egg_ok" id = "egg_ok" class = "egg_ok">
+    <img src = "fish_ok.png" draggable = true ondragstart = beginDrag(event) id = "fish_ok" id = "fish_ok" class = "fish_ok">
+    <img src = "egg_ok.png" draggable = true ondragstart = beginDrag(event)  id = "egg_ok" id = "egg_ok" class = "egg_ok">
     <div id = "time_cook_1" class = time_cook_1></div>
     <div id = "time_cook_2" class = time_cook_2></div>
-    <div><img id = "guest1" src = "guest.png" class = "guest1"  ondrop="toDrop(event)" ondragover="allowDrop(event)"></div>
-    <div><img id = "guest2" src = "guest.png" class = "guest2"  ondrop="toDrop(event)" ondragover="allowDrop(event)"></div>
-    <div><img id = "guest3" src = "guest.png" class = "guest3"  ondrop="toDrop(event)" ondragover="allowDrop(event)"></div>
-    <div><img id = "guest4" src = "guest.png" class = "guest4"  ondrop="toDrop(event)" ondragover="allowDrop(event)"></div>
+    <div id = "score" class = score>得分 : 0</div>
+    <div>
+      <img id = "guest1" src = "guest.png" class = "guest1"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
+      <div id = "want1" class = "want1">要烤魚!!</div>
+    </div>
+    <div>
+      <img id = "guest2" src = "guest.png" class = "guest2"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
+      <div id = "want2" class = "want2">要烤魚!!</div>
+    </div>
+    <div>
+      <img id = "guest3" src = "guest.png" class = "guest3"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
+      <div id = "want3" class = "want3">要烤魚!!</div>
+    </div>
+    <div>
+      <img id = "guest4" src = "guest.png" class = "guest4"  ondrop="toDrop(event)" ondragover="allowDrop(event)">
+      <div id = "want4" class = "want4">要烤魚!!</div>
+    </div>
 </body>
 </html>
