@@ -42,6 +42,11 @@ function image_repos(){
             "left" : ""+(wid/3-60)+"px",
             "top"  : ""+(hei/4+130)+"px",
         })
+
+        $("#start2").css({
+            "left" : ""+(wid/3-60)+"px",
+            "top"  : ""+(hei/4+130)+"px",
+        })
         
         $(".moon_").css({
             "left" : ""+(wid/3)+"px",
@@ -65,6 +70,7 @@ function image_repos(){
 function doani(){
     $("#music").hide(); //
     $("#start").hide();
+    $("#start2").hide();
     $("#load").hide();
     $("#door_out").hide();
     $("#cloud").hide();
@@ -108,6 +114,13 @@ function doani(){
     $("#door_out").click(function(){
         $("#fade").fadeTo(100,0);
         $("#start").show();
+        $("#restaurant").css({
+            "top":"-=52px",
+        })
+    })
+    $("#roof").click(function(){
+        $("#fade").fadeTo(100,0);
+        $("#start2").show();
         $("#restaurant").css({
             "top":"-=52px",
         })
