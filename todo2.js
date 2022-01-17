@@ -13,8 +13,8 @@ function image_repos(){
         $("#guest2").hide();
        // $("#guest3").hide();
        // $("#guest4").hide();
-       // $("#want1").hide();
-       // $("#want2").hide();
+        $("#want1").hide();
+        $("#want2").hide();
        // $("#want3").hide();
        // $("#want4").hide();
         $("#wood").css({
