@@ -2,7 +2,7 @@ let hei = window.innerHeight;
 let wid = window.innerWidth;
 let score = 0;
 let endgame = 0;
-let timeqq = 4;
+let timeqq = 46;
 function dodo(){
     $("#end").hide();
     let tp = setInterval(function(){
