@@ -2,6 +2,35 @@ let hei = window.innerHeight;
 let wid = window.innerWidth;
 let score = 0;
 let endgame = 0;
+let timeqq = 46;
+function dodo(){
+    $("#end").hide();
+    let tp = setInterval(function(){
+      timeqq--;
+      $("#time").html("time : "+timeqq+" sec");
+      if(timeqq == 5){
+          document.getElementById("countdown_mus").play();
+      }
+      if(timeqq == 0){
+        $("#guest1").hide();
+        $("#guest2").hide();
+        $("#guest3").hide();
+        $("#guest4").hide();
+        $("#want1").hide();
+        $("#want2").hide();
+        $("#want3").hide();
+        $("#want4").hide();
+        $("#end").show();
+        endgame = 1;
+        $("#abc").html("得分 : "+score+"<br>"+'<a href = https://vayne1125.github.io/final_project/ ><input type = "button" value = "返回主畫面" id = "button"></a>')
+        clearInterval(tp);
+      }
+    },1000)
+    call_1();
+    call_2();
+    call_3();
+    call_4();
+}
 function image_repos(){
     $(document).ready(function(){
         $("#body").mouseover(function(e){
@@ -35,18 +64,6 @@ function image_repos(){
             "top":120+"px",
             "left":0+"px",
         }) 
-        let music = 0;
-        $("#music").click(function(){
-            if(!music){
-                document.getElementById("aud").play();
-                $("#music").html("music : on");
-                music = 0;
-            }else{
-                document.getElementById("aud").pause();
-                $("#music").html("music : off");
-                music = 1;
-            }
-        })
         $("#cook_1").css({
             "top":(hei/3+50)+"px",
             "left":(wid/2+300)+"px",
@@ -186,9 +203,24 @@ function image_repos(){
         })
 
         $(".end").css({
-            "top":(hei/2-100)+"px",
+            "top":(hei/2-130)+"px",
             "left":(wid/2-270)+"px",
+            "zIndex":"0"
         })
+    })
+}
+function music(){
+    let music = 0;
+    $("#music").click(function(){
+        if(!music){
+            document.getElementById("aud").play();
+            $("#music").html("music : on");
+            music = 1;
+        }else{
+            document.getElementById("aud").pause();
+            $("#music").html("music : off");
+            music = 0;
+        }
     })
 }
 let guest1want="",guset2want="",guest3want="",guest4want="";
@@ -206,7 +238,10 @@ function call_1(){
         $("#want1").fadeIn();
         guest1want = id[tp];
    }, time);
-    let time2 = 3000+(Math.floor(Math.random()*3)*1000);
+    let time2;
+    if(timeqq >= 35) time2 = ( 5000 + (Math.floor(Math.random()*6)*1000));  //剛開始遊戲 可能5~10秒
+    else if(timeqq >= 15) time2 = (5000 + (Math.floor(Math.random()*3)*1000)); //剛開始遊戲 可能5~7秒
+    else time2 = (3000 + (Math.floor(Math.random()*5)*1000)); //3~7秒
     let cnt=0;
     setTimeout(function(){
          let output = food[tp];
@@ -225,7 +260,7 @@ function call_1(){
                     $("#want1").html("太久了!!!<br>掰掰!!!");
                     cando1 = 0;
                 },500);
-            }else if(cnt*1000 == time2){
+            }else if(cnt*1000 >= time2){
                 $("#guest1").fadeOut();
                 $("#want1").fadeOut();
                 clearInterval(stop1);
@@ -253,7 +288,10 @@ function call_2(){
         $("#want2").fadeIn();
         guest2want = id[tp];
    }, time);
-    let time2 = 3000+(Math.floor(Math.random()*3)*1000);
+   let time2;
+   if(timeqq >= 35) time2 = ( 5000 + (Math.floor(Math.random()*6)*1000));  //剛開始遊戲 可能5~10秒
+   else if(timeqq >= 15) time2 = (5000 + (Math.floor(Math.random()*3)*1000)); //剛開始遊戲 可能5~7秒
+   else time2 = (3000 + (Math.floor(Math.random()*5)*1000)); //3~7秒
     let cnt=0;
     setTimeout(function(){
          let output = food[tp];
@@ -296,7 +334,10 @@ function call_3(){
         $("#want3").fadeIn();
         guest3want = id[tp];
    }, time);
-    let time2 = 3000+(Math.floor(Math.random()*3)*1000);
+   let time2;
+   if(timeqq >= 35) time2 = ( 5000 + (Math.floor(Math.random()*6)*1000));  //剛開始遊戲 可能5~10秒
+   else if(timeqq >= 15) time2 = (5000 + (Math.floor(Math.random()*3)*1000)); //剛開始遊戲 可能5~7秒
+   else time2 = (3000 + (Math.floor(Math.random()*5)*1000)); //3~7秒
     let cnt=0;
     setTimeout(function(){
          let output = food[tp];
@@ -340,7 +381,10 @@ function call_4(){
         $("#want4").fadeIn();
         guest4want = id[tp];
    }, time);
-    let time2 = 3000+(Math.floor(Math.random()*3)*1000);
+   let time2;
+   if(timeqq >= 35) time2 = ( 5000 + (Math.floor(Math.random()*6)*1000));  //剛開始遊戲 可能5~10秒
+   else if(timeqq >= 15) time2 = (5000 + (Math.floor(Math.random()*3)*1000)); //剛開始遊戲 可能5~7秒
+   else time2 = (3000 + (Math.floor(Math.random()*5)*1000)); //3~7秒
     let cnt=0;
     setTimeout(function(){
          let output = food[tp];
@@ -374,11 +418,13 @@ function call_4(){
 var IE = "ActiveXObject" in window ;
 var beginDrag = function(e){
     e.dataTransfer.setData("text", e.target.id);
-   
+    //cursor: -webkit-grabbing; cursor: grabbing; 
+    //$("#"+e.target.id).css("cursor","-webkit-grabbing").css("cursor","grabbing");
+    console.log(e.target.id);
 }
 var allowDrop = function(e) {
-        e.preventDefault();
-        //console.log(e.target.id);
+    e.preventDefault();
+    //console.log(e.target.id);
 }
 var toDrop = function(e){  //放下時
     e.preventDefault();
@@ -386,8 +432,8 @@ var toDrop = function(e){  //放下時
     let food_ = document.getElementById(food);
     let cook = e.target.id;
     let cook_ = document.getElementById(cook);
-    console.log(e.target.id);  //烤箱
-    console.log(food);         //魚
+   // console.log(e.target.id);  //烤箱
+   // console.log(food);         //魚
     let output = "Cooking~";
     if(cook == "cook_1"){
         if(food == "fish"){
@@ -468,7 +514,8 @@ var toDrop = function(e){  //放下時
     }else if(cook == "guest1"){  
         clearInterval(stop1); 
         cando1 = 0;
-        if(food == guest1want){           
+        if(food == guest1want){    
+            document.getElementById("ok_mus").play();       
             if(food == "chicken_ok" || food == "fish_ok" || food == "egg_ok" || food == "noodle_ok") {
                 score+=10;
                 $("#"+food).hide();
@@ -480,6 +527,7 @@ var toDrop = function(e){  //放下時
                 call_1();
             },500);    
         }else{
+            document.getElementById("no_mus").play();     
             if((guest1want == "chicken_ok" && food == "chicken") || (guest1want == "fish_ok" && food == "fish") || (guest1want == "noodle_ok" && food == "noodle")||(guest1want == "egg_ok" && food == "egg")){
                 $("#want1").html("要熟的!!!");
                 score -= 3;
@@ -497,7 +545,8 @@ var toDrop = function(e){  //放下時
     }else if(cook == "guest2"){  
         clearInterval(stop2); 
         cando2 = 0;
-        if(food == guest2want){           
+        if(food == guest2want){   
+            document.getElementById("ok_mus").play();              
             if(food == "chicken_ok" || food == "fish_ok" || food == "egg_ok" || food == "noodle_ok") {
                 score+=10;
                 $("#"+food).hide();
@@ -509,6 +558,7 @@ var toDrop = function(e){  //放下時
                 call_2();
             },500);    
         }else{
+            document.getElementById("no_mus").play();     
             if((guest2want == "chicken_ok" && food == "chicken") || (guest2want == "fish_ok" && food == "fish") || (guest2want == "noodle_ok" && food == "noodle")||(guest2want == "egg_ok" && food == "egg")){
                 $("#want2").html("要熟的!!!");
                 score -= 3;
@@ -526,7 +576,8 @@ var toDrop = function(e){  //放下時
     }else if(cook == "guest3"){  
         clearInterval(stop3); 
         cando3 = 0;
-        if(food == guest3want){           
+        if(food == guest3want){     
+            document.getElementById("ok_mus").play();           
             if(food == "chicken_ok" || food == "fish_ok" || food == "egg_ok" || food == "noodle_ok") {
                 score+=10;
                 $("#"+food).hide();
@@ -538,6 +589,7 @@ var toDrop = function(e){  //放下時
                 call_3();
             },500);    
         }else{
+            document.getElementById("no_mus").play();     
             if((guest3want == "chicken_ok" && food == "chicken") || (guest3want == "fish_ok" && food == "fish") || (guest3want == "noodle_ok" && food == "noodle")||(guest3want == "egg_ok" && food == "egg")){
                 $("#want3").html("要熟的!!!");
                 score -= 3;
@@ -553,9 +605,10 @@ var toDrop = function(e){  //放下時
         }
         $("#score").html("Score :"+score);
     }else if(cook == "guest4"){  
-        clearInterval(stop4); 
+        clearInterval(stop4);  
         cando4 = 0;
-        if(food == guest4want){           
+        if(food == guest4want){         
+            document.getElementById("ok_mus").play();       
             if(food == "chicken_ok" || food == "fish_ok" || food == "egg_ok" || food == "noodle_ok") {
                 score+=10;
                 $("#"+food).hide();
@@ -567,6 +620,7 @@ var toDrop = function(e){  //放下時
                 call_4();
             },500);    
         }else{
+            document.getElementById("no_mus").play();     
             if((guest4want == "chicken_ok" && food == "chicken") || (guest4want == "fish_ok" && food == "fish") || (guest4want == "noodle_ok" && food == "noodle")||(guest4want == "egg_ok" && food == "egg")){
                 $("#want4").html("要熟的!!!");
                 score -= 3;
