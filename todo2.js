@@ -205,7 +205,7 @@ function image_repos(){
         $(".end").css({
             "top":(hei/2-130)+"px",
             "left":(wid/2-270)+"px",
-            "zIndex":"0"
+            "zIndex":"2"
         })
     })
 }
