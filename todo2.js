@@ -2,7 +2,7 @@ let hei = window.innerHeight;
 let wid = window.innerWidth;
 let score = 0;
 let endgame = 0;
-let timeqq = 46;
+let timeqq = 4;
 function dodo(){
     $("#end").hide();
     let tp = setInterval(function(){
@@ -22,7 +22,7 @@ function dodo(){
         $("#want4").hide();
         $("#end").show();
         endgame = 1;
-        $("#abc").html("得分 : "+score+"<br>"+'<a href = https://vayne1125.github.io/final_project/ ><input type = "button" value = "返回主畫面" id = "button"></a>')
+        $("#abc").html("score : "+score+"<br>"+'<a href = https://vayne1125.github.io/final_project/ >return pre page </a>')
         clearInterval(tp);
       }
     },1000)
