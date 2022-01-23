@@ -169,10 +169,10 @@ function doani(){
     $("#music").click(function(){
         if(!music){
             document.getElementById("aud").play();
-            music = 0;
+            music = 1;
         }else{
             document.getElementById("aud").pause();
-            music = 1;
+            music = 0;
         }
     })
 }
