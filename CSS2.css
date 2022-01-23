@@ -33,7 +33,7 @@ a{
     position:absolute;
     text-align:center;
     display: inline-block;
-    color: white;
+    color: rgb(246, 248, 212);
     font-size: 10ex;
     border-style: solid;
     border: #272727;
@@ -42,23 +42,6 @@ a{
     display: inline-block;
     z-index: 5;
 }
-.end2{
-    background:#272727;
-    width: 500px;
-    height: 100px;
-    position:absolute;
-    text-align:center;
-    display: inline-block;
-    color: white;
-    font-size: 10ex;
-    border-style: solid;
-    border: #272727;
-    position:absolute;
-    text-align:center;
-    display: inline-block;
-    z-index: 5;
-}
-
 .time{
     color: white;
     font-size: 8ex;
@@ -242,4 +225,9 @@ body{
     display: inline-block;
     z-index: 5;
     color: white;
+}
+a{
+    font-size: 0.5em;
+    text-decoration: none;
+    color:blanchedalmond;
 }
